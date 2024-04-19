@@ -13,7 +13,8 @@ By following the MVC architecture, the project is divided into three main folder
 ## Installation
 
 ### Virtual Host
-
+tttt
+test dyt dytdiytfdiytf
 * Open WAMP server
 * Visit `localhost` in your browser (or right-click on the WAMP icon and click on `localhost`)
 * Click on `Add a Virtual Host`
