@@ -1,5 +1,8 @@
 # Example of a login page
 
+fggf
+
+
 This example demonstrates how to create a login page with PHP and MySQL.
 The project includes examples of an MVC architecture (Model-View-Controller).
 By following the MVC architecture, the project is divided into three main folders:
