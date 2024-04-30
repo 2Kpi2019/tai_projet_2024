@@ -1,0 +1,84 @@
+
+   
+body {
+ 
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: linear-gradient(to top, rgb(232, 226, 218), rgb(166, 158, 149)), url(1.jpg);
+    background-size: cover; /* Ajuster la taille de l'image pour couvrir tout l'arrière-plan */
+    height: 100vh;
+   
+   
+}
+footer {
+    
+    background-color: darkgrey;
+    text-align: center;
+    padding: 1%;
+    position: absolute;
+    bottom: 0px;
+    margin: 0px;
+    width: 100%;
+}
+
+.error_message {
+    border: thin red solid;
+    background-color: lightcoral;
+    text-align: center;
+    width: 60%;
+    margin: auto;
+}
+section {
+    background-color: aliceblue;
+    padding: 5px;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+ 
+}
+section h1 {
+    text-align: center;
+}
+ 
+form {
+    display: flex;
+    flex-direction: column;
+}
+ 
+form input{
+    margin: 5px 0;
+    padding: 5px 5px;
+    outline: 0;
+    border: 2px solid#000;
+    border-radius: 6px;
+}
+form input[type='submit']{
+background-color: blue;
+border: 0;
+color: white;
+margin-top: 25px;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+ 
+.image {
+    position: fixed; /* Position fixée pour que l'image reste en arrière-plan lors du défilement */
+    top: 0;
+    left: 0;
+    width: 100%; /* La largeur de l'image est égale à 100% de la largeur de la fenêtre du navigateur */
+    height: 100%; /* La hauteur de l'image est égale à 100% de la hauteur de la fenêtre du navigateur */
+    z-index: -1; /* Place l'image en arrière-plan */
+}
+ 
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Redimensionne l'image pour remplir complètement le conteneur tout en conservant son ratio d'aspect */
+}
+ 

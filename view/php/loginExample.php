@@ -13,37 +13,36 @@
     // here, the file is in the same folder as the includes.php file (view/)
     include_once __DIR__ . '/includes.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="view/css/example.css">
-        <title>Login Example</title>
-    </head>
-    <body>
-        
-        <!-- PHP only used to display stuff -->
-        <?php include_header(); ?>
-
-        <?php 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="/view/css/connexcion.css">
+</head>
+<body>
+   
+    <section>
+<?php 
             // if an error happened
             if (isset($something_to_say)) {
                 include_error_message($something_to_say);
             }
         ?>
-
-        <form method="post" action="loginController.php">
-            <fieldset>
-                <legend>Login</legend>
-                <input type="text" placeholder="login" id="login" name="login">
-                <input type="password" placeholder='password' id='pwd' name="pwd">
-                <button type="submit">Submit</button>
-            </fieldset>
+        <h1>KALLITEST</h1>
+        <form method="post" action="../../loginController.php">
+            <label>E-mail</label>
+            <input type="text" placeholder="login" id="login" name="login">
+                
+            <label>Mot de passe</label>
+            <input type="password" placeholder='password' id='pwd' name="pwd">
+            <input type="submit" value="Se connecter">
         </form>
-
-        <?php include_footer(); ?>
-
-    </body>
+    </section>
+    <div class="image">
+            <img src="/figs/B.jpg" alt="Image">
+        </div>
+<?php include_footer(); ?>
+</body>
 </html>

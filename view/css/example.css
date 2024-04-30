@@ -5,15 +5,24 @@ Example CSS file for the tai project
  * @date: Dec. 2023
 */
 html {
-    background-color: black;
+    background-color: white;
+    position: relative;
+    width: 100%;
 }
 
 
+
 body {
-    width: 90%;
+    
     margin: 0px auto;
-    height: 100vh;
-    background-color: white;
+    
+    background-color: transparent;
+    min-height: calc(100vh - 70px); /* Assure que le corps a une hauteur minimale de 100% */
+    display: flex;
+    flex-direction: column; 
+    margin-bottom: 50px;
+    
+    
 }
 
 h1 {
@@ -23,10 +32,17 @@ h1 {
     border-bottom: thin goldenrod solid;
     margin-top: 0px;
 }
+.logout-button {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: auto; /* Ceci déplace le bouton vers la droite */
+}
 
 h2 {
     text-align: right;
     /* font-size: 0.5em; */
+    /*margin-right: 500px;*/
     padding-right: 2em;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-style: italic;
@@ -39,13 +55,14 @@ h2::before, h2::after {
 
 
 footer {
+    
     background-color: darkgrey;
     text-align: center;
     padding: 1%;
     position: absolute;
     bottom: 0px;
     margin: 0px;
-    width: 88%;
+    width: 100%;
 }
 
 
@@ -59,11 +76,14 @@ footer {
 
 /* fancy main section */
 main {
+   
     background-color: lightgrey;
     border: thin solid grey;
     padding: 1%;
     margin: 1%;
     border-radius: 5px;
+    flex-grow: 1;
+    
 }
 
 /* Modern h3 */
@@ -79,12 +99,38 @@ h3 {
     
 }
 
-.serie-zone {
-    width: 100px; /* Définissez la largeur du carré selon vos besoins */
-    height: 100px; /* Définissez la hauteur du carré selon vos besoins */
-    border: 2px solid black; /* Définissez le style de bordure */
-    display: inline-block; /* Assurez-vous que le div occupe seulement l'espace nécessaire */
-    margin: 5px; /* Ajoutez une marge autour du carré pour l'espace */
-    text-align: center; /* Centrez le contenu à l'intérieur du carré si nécessaire */
+.welcome-message {
+    text-align: center; /* Pour centrer le texte */
+    margin: 0 auto; /* Pour centrer la div horizontalement */
+    max-width: 600px; /* Optionnel : pour limiter la largeur du contenu */
 }
+.welcome-message ul {
+    text-align: left; /* Aligner le texte de la liste à gauche */
+    list-style-position: outside; /* Placer les puces à l'extérieur */
+}
+
+.welcome-message ul li {
+    margin-left: 1.5em; /* Espace entre la puce et le texte */
+}
+.fondecran {
+    position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+}
+ 
+.fondecran img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Redimensionne l'image pour remplir complètement le conteneur tout en conservant son ratio d'aspect */
+}
+
+
+
+
+
+
+
 
