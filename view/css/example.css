@@ -78,3 +78,13 @@ h3 {
     position: relative;
     
 }
+
+.serie-zone {
+    width: 100px; /* Définissez la largeur du carré selon vos besoins */
+    height: 100px; /* Définissez la hauteur du carré selon vos besoins */
+    border: 2px solid black; /* Définissez le style de bordure */
+    display: inline-block; /* Assurez-vous que le div occupe seulement l'espace nécessaire */
+    margin: 5px; /* Ajoutez une marge autour du carré pour l'espace */
+    text-align: center; /* Centrez le contenu à l'intérieur du carré si nécessaire */
+}
+
