@@ -44,26 +44,34 @@ h2 {
     /* font-size: 0.5em; */
     /*margin-right: 500px;*/
     padding-right: 2em;
+    
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-style: italic;
+    /* font-style: italic; */
 }
 
-h2::before, h2::after {
+/* h2::before, h2::after {
     content: "\"";
     color: red;
-}
+    background-color: transparent;
+} */
 
 
 footer {
-    
-    background-color: darkgrey;
+    background-color: lightgrey;
     text-align: center;
     padding: 1%;
     position: absolute;
     bottom: 0px;
-    margin: 0px;
-    width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    margin-right: 1%;
+    margin-left: 1%;
+    border-radius: 5px;
+    border: thin solid grey;
+    
 }
+
 
 
 .error_message {

@@ -299,16 +299,16 @@ function nouveau() {
 
 function allwhite() {
     var element = document.getElementById("Test");
-    element.style.backgroundColor = "white";
+    element.style.backgroundColor = "lightgrey";
     if (document.getElementById("nouveau")) {
         var element = document.getElementById("nouveau");
-    element.style.backgroundColor = "white";
+    element.style.backgroundColor = "lightgrey";
     }
     
     var element = document.getElementById("compte");
-    element.style.backgroundColor = "white";
+    element.style.backgroundColor = "lightgrey";
     var element = document.getElementById("finit");
-    element.style.backgroundColor = "white";
+    element.style.backgroundColor = "lightgrey";
 
 }
 function afficherSerie() {

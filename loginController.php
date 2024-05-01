@@ -18,30 +18,35 @@
     if (isset($_POST['login']) && isset($_POST['pwd'])) {
 
         // check if all fields have an input
-        if (strlen($_POST['login']) > 0 && strlen($_POST['pwd']) > 0) {
-            $userModel = new UserModel();
-            // Call the model to check if the user exists
-            // How is the information stored? In a database? In a file? In a cloud? In a cookie?
-            // The controller does not care about that. It just calls the model.
-            $result = $userModel->check_login($_POST['login'], $_POST['pwd']);
-            // If the search (in the db here) is successful
-            if (isset($result['firstname'])) {
-                // the controller can now redirect to the correct welcome webpage
-                // making sure the firstname and lastname are registered throughout the **session**
-                session_start();
-                $_SESSION['firstname'] = $result['firstname'];
-                $_SESSION['lastname'] = $result['lastname'];
-                $_SESSION['id'] = $result['id'];
-                $_SESSION['job'] = $result['job'];
+        if (strlen($_POST['login']) > 0 ) {
+            if (strlen($_POST['pwd']) >0) {
+                $userModel = new UserModel();
+                // Call the model to check if the user exists
+                // How is the information stored? In a database? In a file? In a cloud? In a cookie?
+                // The controller does not care about that. It just calls the model.
+                $result = $userModel->check_login($_POST['login'], $_POST['pwd']);
+                // If the search (in the db here) is successful
+                if (isset($result['firstname'])) {
+                    // the controller can now redirect to the correct welcome webpage
+                    // making sure the firstname and lastname are registered throughout the **session**
+                    session_start();
+                    $_SESSION['firstname'] = $result['firstname'];
+                    $_SESSION['lastname'] = $result['lastname'];
+                    $_SESSION['id'] = $result['id'];
+                    $_SESSION['job'] = $result['job'];
+                }
+                else {
+                    // set the error message to be displayed in the view
+                    $something_to_say = "Invalid login and/or password.";  
+                }
+            } else {
+                $something_to_say = "Veuillez saisir un mot de passe";
             }
-            else {
-                // set the error message to be displayed in the view
-                $something_to_say = "Invalid login and/or password.";  
-            }
+           
         }
         else {
             // set the error message to be displayed in the view
-            $something_to_say = "Missing login and/or password";
+            $something_to_say = "Veuillez saisir un Email";
             
         }
     }

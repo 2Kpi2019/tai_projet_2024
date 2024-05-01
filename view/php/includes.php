@@ -9,9 +9,46 @@
 
     function include_header() {
         ?>
+       <style>
+        .container {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 20px;
+        align-items: center; /* Pour centrer verticalement les éléments dans chaque colonne */
+    }
+    .titre {
+        text-align: center;
+        margin-left: 500px;
+    }
+
+    .titre div {
+        color: black;
+        background-color: lightgrey;
+        font-size: 2em;
+        font-weight: bold;
+        border-radius: 5px;
+    border: thin solid grey;
+    }
+
+    .legars {
+        text-align: right;
         
-            <h1>KaliTest</h1>
-            
+    }
+    
+
+    
+</style>
+
+<div class="container">
+    <div class="titre">
+        <div>KALITEST</div>
+    </div>
+    <div class="legars">
+        <h2><?php echo $_SESSION['firstname']?></h2>
+        <h2><?php echo $_SESSION['lastname']?></h2>
+    </div>
+</div>
+
         
         <?php
     }
@@ -42,7 +79,7 @@
     function include_header5() {
         ?>
      
-     <h3>Bienvenue <?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname'] . "!!"; ?></h3>
+     <h3>Bienvenue <?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname'] . " !!"; ?></h3>
     
         <?php
     }
@@ -72,9 +109,10 @@ nav ul li a {
     display: block;
     padding: 10px;
     text-decoration: none;
+    background-color: lightgrey; /* Fond transparent */
 }
 .deco {
-    background-color: transparent; /* Fond transparent */
+    background-color: lightgrey; /* Fond transparent */
     border: 2px solid black; /* Bordure similaire aux liens */
     border-radius: 5px; /* Coins arrondis */
     padding: 10px; /* Espacement interne */
@@ -86,8 +124,7 @@ nav ul li a {
     
 
         </style>
-        <h2><?php echo $_SESSION['firstname']?></h2>
-        <h2><?php echo $_SESSION['lastname']?></h2>
+        
         <body>
         <nav>
                 <ul>
@@ -138,9 +175,10 @@ nav ul li a {
     display: block;
     padding: 10px;
     text-decoration: none;
+    background-color: lightgrey;
 }
 .deco {
-    background-color: transparent; /* Fond transparent */
+    background-color: lightgrey; /* Fond transparent */
     border: 2px solid black; /* Bordure similaire aux liens */
     border-radius: 5px; /* Coins arrondis */
     padding: 10px; /* Espacement interne */
@@ -152,8 +190,7 @@ nav ul li a {
     
 
         </style>
-        <h2><?php echo $_SESSION['firstname']?></h2>
-        <h2><?php echo $_SESSION['lastname']?></h2>
+        
         <body>
         <nav>
                 <ul>

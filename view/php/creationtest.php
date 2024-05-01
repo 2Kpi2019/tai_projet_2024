@@ -76,20 +76,20 @@ unset($_SESSION['form_submitted']);
             Nom : <input type="text" placeholder="Nom" name="Nom" value="<?php echo isset($form_data['Nom']) ? $form_data['Nom'] : ''; ?>"><br>
 Référence: <input type="text" placeholder="Référence" name="Reference" value="<?php echo isset($form_data['Reference']) ? $form_data['Reference'] : ''; ?>"><br>
             Matière: <input type="text" placeholder="Matière" name="Matiere" value="<?php echo isset($form_data['Matiere']) ? $form_data['Matiere'] : ''; ?>"><br>
-            Résistance: <input type="text" placeholder="Résistance" name="Resistance" value="<?php echo isset($form_data['Resistance']) ? $form_data['Resistance'] : ''; ?>"><br>
-            Poids : <input type="text" placeholder="Poids" name="poids" value="<?php echo isset($form_data['poids']) ? $form_data['poids'] : ''; ?>"><br>
+            Résistance (Pa): <input type="text" oninput="this.value = this.value.replace(/[^\d.,]/g, '').replace(',', '.')" placeholder="Résistance" name="Resistance" value="<?php echo isset($form_data['Resistance']) ? $form_data['Resistance'] : ''; ?>"><br>
+            Poids (Kg): <input type="text" oninput="this.value = this.value.replace(/[^\d.,]/g, '').replace(',', '.')" placeholder="Poids" name="poids" value="<?php echo isset($form_data['poids']) ? $form_data['poids'] : ''; ?>"><br>
             Attribué à :
             <select name="idinge">
                 <?php foreach ($entries as $user): ?>
                 <option value="<?php echo $user['id'] ?>" <?php if (isset($form_data['idinge']) && $form_data['idinge'] == $user['id']) echo 'selected'; ?>><?php echo $user['Name'] ?></option>
                 <?php endforeach; ?>            
             </select><br>
-            Hauteur : <input type="text" placeholder="Hauteur" name="hauteur" value="<?php echo isset($form_data['hauteur']) ? $form_data['hauteur'] : ''; ?>"><br>
-            Longueur : <input type="text" placeholder="Longueur" name="longueur" value="<?php echo isset($form_data['longueur']) ? $form_data['longueur'] : ''; ?>"><br>
+            Hauteur (cm): <input type="text" oninput="this.value = this.value.replace(/[^\d.,]/g, '').replace(',', '.')" placeholder="Hauteur" name="hauteur" value="<?php echo isset($form_data['hauteur']) ? $form_data['hauteur'] : ''; ?>"><br>
+            Longueur (cm): <input type="text" oninput="this.value = this.value.replace(/[^\d.,]/g, '').replace(',', '.')" placeholder="Longueur" name="longueur" value="<?php echo isset($form_data['longueur']) ? $form_data['longueur'] : ''; ?>"><br>
             Nb de pièce : <input type="text" placeholder="Nombre de pièces" name="nbpiece" value="<?php echo isset($form_data['nbpiece']) ? $form_data['nbpiece'] : ''; ?>"><br>
             Couleur : <input type="text" placeholder="Couleur" name="couleur" value="<?php echo isset($form_data['couleur']) ? $form_data['couleur'] : ''; ?>"><br>
             Description : <input type="text" placeholder="Description" name="description" value="<?php echo isset($form_data['description']) ? $form_data['description'] : ''; ?>"><br>
-            Erreur : <input type="text" placeholder="Erreur" name="erreur" value="<?php echo isset($form_data['erreur']) ? $form_data['erreur'] : ''; ?>"><br>
+            Erreur (%): <input type="text" oninput="this.value = this.value.replace(/[^\d.,]/g, '').replace(',', '.')" placeholder="Erreur" name="erreur" value="<?php echo isset($form_data['erreur']) ? $form_data['erreur'] : ''; ?>"><br>
             <label for="date">Sélectionnez une date :</label>
             <input type="date" id="date" name="date" value="<?php echo isset($form_data['date']) ? $form_data['date'] : ''; ?>"><br>
             <!-- Ajoutez d'autres champs ici si nécessaire -->

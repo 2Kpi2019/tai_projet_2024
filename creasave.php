@@ -53,7 +53,7 @@ require_once(__DIR__."/view/php/respo.php");
         exit();
     } else {
         require_once(__DIR__."/view/php/respo.php");
-        echo '<script>nouveau();afficherMessageBox("Missing Data")</script>';
+        echo '<script>nouveau();afficherMessageBox("Ils manquent des informations")</script>';
        
         
         exit();

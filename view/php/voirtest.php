@@ -25,7 +25,7 @@
 // Définir les ID pour les boutons d'augmentation et de diminution
 // Assurez-vous que l'ID ne devienne jamais inférieur à 1
 $piece = $userModel->get_serie_by_id($userID,$variable);
-    include_header();
+    
     ?>
 <div class="flex-container">
     <div class="">
@@ -40,14 +40,14 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
             Nom : <?php echo $user['Name']; ?><br>
             Référence : <?php echo $user['reference']; ?><br>
             Matière : <?php echo $user['matter']; ?><br>
-            Poids : <?php echo $user['weight']; ?><br>
-            Hauteur : <?php echo $user['height']; ?><br>
-            Longueur : <?php echo $user['length']; ?><br>
-            Résistance : <?php echo $user['resistance']; ?><br>
+            Poids (Kg): <?php echo $user['weight']; ?><br>
+            Hauteur (cm): <?php echo $user['height']; ?><br>
+            Longueur (cm): <?php echo $user['length']; ?><br>
+            Résistance (Pa): <?php echo $user['resistance']; ?><br>
             Couleur : <?php echo $user['color']; ?><br>
             Nombre de Pièce : <?php echo $user['Nb_piece']; ?><br>
             Deadline : <?php echo $user['deadline']; ?><br>
-            Erreur : <?php echo $user['percentage_of_error']; ?><br>
+            Erreur (%): <?php echo $user['percentage_of_error']; ?><br>
             Description : <?php echo $user['description']; ?><br>
             <!-- Ajoutez d'autres champs ici si nécessaire -->
             <?php $lastUserPicture = $user['picture']; ?>

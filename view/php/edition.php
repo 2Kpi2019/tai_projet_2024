@@ -44,14 +44,14 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
             Nom : <?php echo $user['Name']; ?><br>
             Référence : <?php echo $user['reference']; ?><br>
             Matière : <?php echo $user['matter']; ?><br>
-            Poids : <?php echo $user['weight']; ?><br>
-            Hauteur : <?php echo $user['height']; ?><br>
-            Longueur : <?php echo $user['length']; ?><br>
-            Résistance : <?php echo $user['resistance']; ?><br>
+            Poids (kg): <?php echo $user['weight']; ?><br>
+            Hauteur (cm): <?php echo $user['height']; ?><br>
+            Longueur (cm): <?php echo $user['length']; ?><br>
+            Résistance (Pa): <?php echo $user['resistance']; ?><br>
             Couleur : <?php echo $user['color']; ?><br>
             Nombre de Pièce : <?php echo $user['Nb_piece']; ?><br>
             Deadline : <?php echo $user['deadline']; ?><br>
-            Erreur : <?php echo $user['percentage_of_error']; ?><br>
+            Erreur (%): <?php echo $user['percentage_of_error']; ?><br>
             Description : <?php echo $user['description']; ?><br>
             <!-- Ajoutez d'autres champs ici si nécessaire -->
             <?php $lastUserPicture = $user['picture']; ?>
@@ -76,13 +76,13 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
         <fieldset>
         <legend>Résultats</legend>
             <!-- Afficher les informations de l'utilisateur -->
-            Nb Pièce: <input type="text" name="N_Piece" value="<?php echo $user['N_Piece']; ?>" readonly><br>
+            N° Pièce: <input type="text" name="N_Piece" value="<?php echo $user['N_Piece']; ?>" readonly><br>
 
             Compliance: <?php echo '<input type="text" placeholder="login" name="compliance" value="' .$user['compliance'] .'">'; ?><br>
-            Résistance: <?php echo '<input type="text" placeholder="login" name="Resistance" value="' .$user['Resistance'] .'">'; ?><br>
-            Info: <?php echo '<input type="text" placeholder="login" name="info" value="' .$user['info'] .'">'; ?><br>
-            Poids : <?php echo '<input type="text" placeholder="weight" name="date" value="' .$user['weight'] .'">'; ?><br>
-            
+            Résistance (Pa): <?php echo '<input type="text" oninput="this.value = this.value.replace(/[^\d.,]/g, \'\').replace(\',\', \'.\')" placeholder="login" name="Resistance" value="' . $user['Resistance'] . '">'; ?><br>
+Info: <?php echo '<input type="text" placeholder="login" name="info" value="' . $user['info'] . '">'; ?><br>
+Poids (kg): <?php echo '<input type="text" oninput="this.value = this.value.replace(/[^\d.,]/g, \'\').replace(\',\', \'.\')" placeholder="weight" name="date" value="' . $user['weight'] . '">'; ?><br>
+
             <!-- Ajoutez d'autres champs ici si nécessaire -->
             
         <input type="hidden" name="userID" value="<?php echo $userID; ?>">
@@ -180,6 +180,7 @@ button#clot:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 10px;
 }
 
 
