@@ -134,7 +134,9 @@ h3 {
     height: 100%;
     object-fit: cover; /* Redimensionne l'image pour remplir complètement le conteneur tout en conservant son ratio d'aspect */
 }
-
+.serie-zone:hover {
+    background-color: grey;
+}
 
 
 

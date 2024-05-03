@@ -42,7 +42,7 @@
 <?php foreach ($entries as $user): ?>
     <!-- Créer une zone cliquable autour de chaque utilisateur -->
     <div class="serie-zone" data-serie-id="<?php echo $user['id']; ?>">
-    <input type="hidden" id="blob" value="<?php echo base64_encode($user['picture']); ?>">
+    <input type="hidden" id="blob_<?php echo $user['id']; ?>" value="<?php echo base64_encode($user['PDF_cr']); ?>">
         <!-- Div pour les informations -->
         <div class="info">
             <!-- Afficher les informations de l'utilisateur -->

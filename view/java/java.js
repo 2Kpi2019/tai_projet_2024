@@ -79,12 +79,14 @@ function afficherCompteRendu() {
             userZones.forEach(function(zone) {
                 zone.addEventListener("click", function() {
                     // Récupérer l'ID de l'utilisateur associé à cette zone
-                    var userId = document.getElementById("blob").value;
-
+                    var userId = zone.getAttribute("data-serie-id");
+                    
+                    var blob = document.getElementById("blob_"+ userId).value;
+                    console.log(blob);
                     
                     // Exécuter votre code JavaScript en fonction de l'ID de l'utilisateur
                     // Par exemple, remplacer le contenu de l'élément 'contenu' par le texte "2"
-                    téléchargerBlob(userId);
+                    téléchargerBlob(blob);
                 });
             });
         }
@@ -123,33 +125,43 @@ function afficherCompteRendu2() {
     xhr.send();
 
 }
-function téléchargerBlob(blob) {
+function téléchargerBlob(pdfData) {
     // Création d'un lien temporaire
-    var nomFichier = "testreturnphoto.jpeg";
-   
-    // Convertir la chaîne base64 en tableau de bytes
-    var byteCharacters = atob(blob);
-    var byteArrays = new Array(byteCharacters.length);
-    for (var i = 0; i < byteCharacters.length; i++) {
-        byteArrays[i] = byteCharacters.charCodeAt(i);
+    var pdfBytes = atob(pdfData);
+
+    // Convertissez les octets en tableau d'octets
+    var byteNumbers = new Array(pdfBytes.length);
+    for (var i = 0; i < pdfBytes.length; i++) {
+        byteNumbers[i] = pdfBytes.charCodeAt(i);
     }
-    var byteArray = new Uint8Array(byteArrays);
-    
-    // Créer un Blob à partir du tableau d'octets
-    var blobe = new Blob([byteArray], { type: 'image/jpeg' }); // Assurez-vous que le type MIME est correct
-    
-    
-    // Créer un lien temporaire pour le téléchargement du Blob
-    var lien = document.createElement('a');
-    lien.href = window.URL.createObjectURL(blobe);
-    lien.download = nomFichier;
-    
-    // Ajouter le lien au DOM et déclencher le téléchargement
-    document.body.appendChild(lien);
-    lien.click();
-    
-    // Supprimer le lien du DOM
-    document.body.removeChild(lien);
+    var byteArray = new Uint8Array(byteNumbers);
+
+    // Créez un objet Blob à partir du tableau d'octets
+    var blob = new Blob([byteArray], { type: 'application/pdf' });
+
+    // Créez une URL objet à partir du Blob
+    var blobUrl = URL.createObjectURL(blob);
+
+    // Créez un élément de lien
+    var link = document.createElement('a');
+
+    // Définissez l'URL du lien sur l'URL blob
+    link.href = blobUrl;
+
+    // Définissez le nom de fichier du lien
+    link.download = 'document.pdf';
+
+    // Ajoutez le lien à la page
+    document.body.appendChild(link);
+
+    // Cliquez sur le lien pour déclencher le téléchargement
+    link.click();
+
+    // Supprimez le lien de la page
+    document.body.removeChild(link);
+
+    // Révoquer l'URL blob
+    URL.revokeObjectURL(blobUrl);
 }
 
 function endit(currentUserId) {
@@ -300,15 +312,39 @@ function nouveau() {
 function allwhite() {
     var element = document.getElementById("Test");
     element.style.backgroundColor = "lightgrey";
+    element.addEventListener("mouseover", function() {
+        element.style.backgroundColor = "grey";
+    });
+    element.addEventListener("mouseout", function() {
+        element.style.backgroundColor = "";
+    });
     if (document.getElementById("nouveau")) {
-        var element = document.getElementById("nouveau");
-    element.style.backgroundColor = "lightgrey";
+        var element1 = document.getElementById("nouveau");
+    element1.style.backgroundColor = "lightgrey";
+    element1.addEventListener("mouseover", function() {
+        element1.style.backgroundColor = "grey";
+    });
+    element1.addEventListener("mouseout", function() {
+        element1.style.backgroundColor = "";
+    });
     }
     
-    var element = document.getElementById("compte");
-    element.style.backgroundColor = "lightgrey";
-    var element = document.getElementById("finit");
-    element.style.backgroundColor = "lightgrey";
+    var element2 = document.getElementById("compte");
+    element2.style.backgroundColor = "lightgrey";
+    element2.addEventListener("mouseover", function() {
+        element2.style.backgroundColor = "grey";
+    });
+    element2.addEventListener("mouseout", function() {
+        element2.style.backgroundColor = "";
+    });
+    var element3 = document.getElementById("finit");
+    element3.style.backgroundColor = "lightgrey";
+    element3.addEventListener("mouseover", function() {
+        element3.style.backgroundColor = "grey";
+    });
+    element3.addEventListener("mouseout", function() {
+        element3.style.backgroundColor = "";
+    });
 
 }
 function afficherSerie() {

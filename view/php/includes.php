@@ -177,6 +177,10 @@ nav ul li a {
     text-decoration: none;
     background-color: lightgrey;
 }
+a:hover {
+    background-color: grey;
+}
+
 .deco {
     background-color: lightgrey; /* Fond transparent */
     border: 2px solid black; /* Bordure similaire aux liens */
@@ -217,7 +221,7 @@ nav ul li a {
     function include_footer() {
         ?>
         <footer>
-            Copyright!©️TAI <a href="mailto:servies-kalitest@gmail.com">Contact</a>
+            Copyright!©️KALITEST <a href="mailto:servies-kalitest@gmail.com">Contact</a>
         </footer>
         <?php
     }

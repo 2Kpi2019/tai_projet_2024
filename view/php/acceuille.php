@@ -38,8 +38,8 @@
 
 
 </style>
-<?php clic(); ?>
 
+<?php clic(); ?>
 <?php foreach ($entries as $user): ?>
     <!-- Créer une zone cliquable autour de chaque utilisateur -->
     <div class="serie-zone" data-serie-id="<?php echo $user['id']; ?>">

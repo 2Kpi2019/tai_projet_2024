@@ -72,12 +72,12 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
         <fieldset>
         <legend>Résultats</legend>
             <!-- Afficher les informations de l'utilisateur -->
-            Nb Pièce: <?php echo $user['N_Piece']; ?><br>
+            N° Pièce: <?php echo $user['N_Piece']; ?><br>
             
-            Compliance: <?php echo $user['compliance']; ?><br>
-            Résistance: <?php echo $user['Resistance']; ?><br>
+            Conformité: <?php echo $user['compliance']; ?><br>
+            Résistance (Pa): <?php echo $user['Resistance']; ?><br>
             Info: <?php echo $user['info']; ?><br>
-            Poids : <?php echo $user['weight']; ?><br>
+            Poids (Kg): <?php echo $user['weight']; ?><br>
             
             <!-- Ajoutez d'autres champs ici si nécessaire -->
             <div class="button-container">

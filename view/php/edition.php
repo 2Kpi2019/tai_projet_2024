@@ -76,11 +76,11 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
         <fieldset>
         <legend>Résultats</legend>
             <!-- Afficher les informations de l'utilisateur -->
-            N° Pièce: <input type="text" name="N_Piece" value="<?php echo $user['N_Piece']; ?>" readonly><br>
+            N° Pièce : <input type="text" name="N_Piece" value="<?php echo $user['N_Piece']; ?>" readonly><br>
 
-            Compliance: <?php echo '<input type="text" placeholder="login" name="compliance" value="' .$user['compliance'] .'">'; ?><br>
+            Comformité : <?php echo '<input type="text" placeholder="login" name="compliance" value="' .$user['compliance'] .'">'; ?><br>
             Résistance (Pa): <?php echo '<input type="text" oninput="this.value = this.value.replace(/[^\d.,]/g, \'\').replace(\',\', \'.\')" placeholder="login" name="Resistance" value="' . $user['Resistance'] . '">'; ?><br>
-Info: <?php echo '<input type="text" placeholder="login" name="info" value="' . $user['info'] . '">'; ?><br>
+Info : <?php echo '<input type="text" placeholder="login" name="info" value="' . $user['info'] . '">'; ?><br>
 Poids (kg): <?php echo '<input type="text" oninput="this.value = this.value.replace(/[^\d.,]/g, \'\').replace(\',\', \'.\')" placeholder="weight" name="date" value="' . $user['weight'] . '">'; ?><br>
 
             <!-- Ajoutez d'autres champs ici si nécessaire -->
@@ -104,7 +104,7 @@ Poids (kg): <?php echo '<input type="text" oninput="this.value = this.value.repl
 
         <input type="hidden" name="idSerie" value="<?php echo $userID; ?>">
         
-        <button type="button" id="clot" onClick="generatePDF()">Cloturer le Test</button>
+        <button type="submit" id="clot" onClick="">Cloturer le Test</button>
             
 
             

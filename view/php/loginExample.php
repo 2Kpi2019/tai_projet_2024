@@ -30,19 +30,28 @@
                 include_error_message($something_to_say);
             }
         ?>
-        <h1>KALLITEST</h1>
+        <h1>KALITEST</h1>
         <form method="post" action="../../loginController.php">
-            <label>E-mail</label>
+            <label>E-mail :</label>
+            
             <input type="text" placeholder="login" id="login" name="login">
                 
-            <label>Mot de passe</label>
+            <label>Mot de passe :</label>
             <input type="password" placeholder='password' id='pwd' name="pwd">
             <input type="submit" value="Se connecter">
         </form>
     </section>
     <div class="image">
-            <img src="/figs/B.jpg" alt="Image">
+            <img src="/figs/B.jpg" alt="Image" >
         </div>
+        <!-- <div class="container">
+	<div class="row text-center">
+	<div class = "centered">
+	<div class = "blob-1"></div>
+	<div class = "blob-2"></div> -->
+<!-- </div>
+	</div>
+</div> -->
 <?php include_footer(); ?>
 </body>
 </html>
