@@ -22,7 +22,10 @@
     <link rel="stylesheet" href="/view/css/connexcion.css">
 </head>
 <body>
-   
+
+<div class="image-container">
+    <img src="/figs/roue3.png" alt="Background Image">
+</div>
     <section>
 <?php 
             // if an error happened
@@ -30,19 +33,23 @@
                 include_error_message($something_to_say);
             }
         ?>
-        <h1>KALITEST</h1>
+        <h1><span>KALITEST</span></h1>
         <form method="post" action="../../loginController.php">
-            <label>E-mail :</label>
+        
             
-            <input type="text" placeholder="login" id="login" name="login">
-                
-            <label>Mot de passe :</label>
-            <input type="password" placeholder='password' id='pwd' name="pwd">
-            <input type="submit" value="Se connecter">
+            
+            <input type="text" placeholder="E-mail" id="login" name="login">
+            
+            <input type="password" placeholder="Mot de Passe" id="pwd" name="pwd">
+            <span class="submit-button"><input type="submit" value="Se connecter"></span>
         </form>
     </section>
+   
+   
+   
     <div class="image">
             <img src="/figs/B.jpg" alt="Image" >
+            
         </div>
         <!-- <div class="container">
 	<div class="row text-center">

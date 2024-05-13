@@ -111,12 +111,14 @@ function afficherCompteRendu2() {
             userZones.forEach(function(zone) {
                 zone.addEventListener("click", function() {
                     // Récupérer l'ID de l'utilisateur associé à cette zone
-                    var userId = document.getElementById("blob").value;
+                    var userId = zone.getAttribute("data-serie-id");
+                    var blob = document.getElementById("blob_"+ userId).value;
+                    console.log(blob);
 
                     
                     // Exécuter votre code JavaScript en fonction de l'ID de l'utilisateur
                     // Par exemple, remplacer le contenu de l'élément 'contenu' par le texte "2"
-                    téléchargerBlob(userId);
+                    téléchargerBlob(blob);
                 });
             });
         }
@@ -418,48 +420,4 @@ function afficherMessageBox2(message) {
     setTimeout(function() {
         document.body.removeChild(messageBox);
     }, 4000);
-}
-function generatePDF(info, piece) {
-    // Importer la bibliothèque jsPDF
-    // const { jsPDF } = window.jspdf;
-
-    // Créer un nouveau document PDF
-    const doc = new jsPDF();
-
-    // Définir la taille de la police et les marges
-    const fontSize = 12;
-    const margin = 10;
-
-    // Définir la position initiale du texte
-    let y = margin;
-
-    // Ajouter les données de l'info
-    doc.setFontSize(fontSize);
-    doc.text("Informations de la série :", margin, y);
-    y += fontSize + margin;
-    Object.keys(info).forEach(key => {
-        doc.text(`${key}: ${info[key]}`, margin, y);
-        y += fontSize;
-    });
-
-    // Ajouter les données des pièces
-    y += margin;
-    doc.text("Liste des pièces :", margin, y);
-    y += fontSize + margin;
-    piece.forEach((p, index) => {
-        doc.text(`${index + 1}. ${p}`, margin, y);
-        y += fontSize;
-    });
-
-    // Enregistrer le document sous forme de blob
-    const blob = doc.output('blob');
-return blob;
-    // // Créer une URL à partir du blob
-    // const url = URL.createObjectURL(blob);
-
-    // // Mettre à jour la valeur de l'élément HTML avec l'ID "pdf"
-    // var pdfInput = document.getElementById('pdf');
-    // pdfInput.value = url; /* Mettre à jour la valeur avec l'URL */
-
-    // Ne pas soumettre le formulaire automatiquement ici
 }

@@ -29,7 +29,7 @@ class UserModel extends DBModel {
         }
         // The request uses the MD5() functions since password should not be stored
         // without any protection in the database (i.e., use MD5() to store and retrieve passwords)
-        $request = "SELECT * FROM workers_space WHERE Mail=:login AND password=:password";
+        $request = "SELECT * FROM workers_space WHERE mail=:login AND password=:password";
         $statement = $this->db->prepare($request);
         $statement->execute([
             "login" => $login,
@@ -37,25 +37,15 @@ class UserModel extends DBModel {
         ]);
         $entries = $statement->fetchAll();
         if (count($entries) == 1) {
-            $result["firstname"] = $entries[0]['Name'];
-            $result["lastname"] = $entries[0]['First_Name'];
+            $result["firstname"] = $entries[0]['name'];
+            $result["lastname"] = $entries[0]['first_name'];
             $result["id"] = $entries[0]['id'];
-            $result["job"] = $entries[0]['JOB'];
+            $result["job"] = $entries[0]['job'];
         }
         return $result;
     }
 
-    function savedata(string $id,string $name, string $surname, string $login, string $password) {
-        $request = "UPDATE user SET firstname = :first, lastname = :last, login = :login, password = :pwd WHERE id = :id";
-$statement = $this->db->prepare($request);
-$statement->execute([
-    "id" => $id,
-    "first" => $name,
-    "last" => $surname,
-    "login" => $login,
-    "pwd" => $password
-]);
-    }
+   
 
     function get_all_user_ids() {
         $result = [];
@@ -65,7 +55,7 @@ $statement->execute([
             return $result;
         }
     
-        $request = "SELECT * FROM workers_space WHERE JOB = :id";
+        $request = "SELECT * FROM workers_space WHERE job = :id";
         $statement = $this->db->prepare($request);
         $statement->execute([
             "id" => "Ingénieur"

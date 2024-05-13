@@ -70,7 +70,7 @@ class UserModel extends DBModel {
             return $result;
         }
     
-        $request = "SELECT id, Name, reference, matter, weight, height, length, resistance, color, description, Nb_piece, creation_date, deadline, 'id_workers(createur)', 'id_workers(ingenieur)', states, percentage_of_error, Closing_Date, PDF_cr FROM serie WHERE id = :id";
+        $request = "SELECT id, Name, reference, matter, weight, height, length, resistance, color, description, nb_piece, creation_date, deadline, 'id_workers(createur)', 'id_workers(ingenieur)', states, percentage_of_error, closing_date, pdf_cr FROM serie WHERE id = :id";
 
         $statement = $this->db->prepare($request);
         $statement->execute([
@@ -93,7 +93,7 @@ class UserModel extends DBModel {
             return $result;
         }
     
-        $request = "SELECT * FROM test WHERE Id_Serie= :id AND N_Piece= :idpie ";
+        $request = "SELECT * FROM test WHERE id_serie= :id AND n_piece= :idpie ";
         $statement = $this->db->prepare($request);
         $statement->execute([
             "id" => $id,
@@ -105,7 +105,7 @@ class UserModel extends DBModel {
         //print_r($entries); 
         if (empty($entries)) {
             $this->createEmptyEntry($id, $idpiece);
-            $request = "SELECT * FROM test WHERE Id_Serie= :id AND N_Piece= :idpie ";
+            $request = "SELECT * FROM test WHERE id_serie= :id AND n_piece= :idpie ";
         $statement = $this->db->prepare($request);
         $statement->execute([
             "id" => $id,
@@ -119,16 +119,16 @@ class UserModel extends DBModel {
         return $entries;
     }
     private function createEmptyEntry($id, $idpiece) {
-        $request = "INSERT INTO test (Id_Serie,N_Piece) VALUES (:id, :piece)";
+        $request = "INSERT INTO test (id_serie,n_piece) VALUES (:id, :piece)";
         $statement = $this->db->prepare($request);
         $statement->execute([
             "id" => $id,            
             "piece" => $idpiece
         ]);
     }
-    function savedata(?string $id,?string $name,?string $surname,?string $login,?string $password,?string $idSerie) {
+    function savedata(?string $id,?string $name,?string $surname,?string $login,?string $password,?string $idSerie,?string $haut,?string $long) {
         
-        $request = "UPDATE test SET compliance = :first, Resistance = :last, info = :login, weight = :pwd WHERE N_Piece = :id AND Id_Serie = :idS";
+        $request = "UPDATE test SET compliance = :first, resistance = :last, info = :login, weight = :pwd, length = :lon, height = :haut WHERE n_piece = :id AND id_serie = :idS";
 $statement = $this->db->prepare($request);
 $statement->execute([
     "id" => $id,
@@ -136,13 +136,15 @@ $statement->execute([
     "last" => $surname,
     "login" => $login,
     "pwd" => $password,
-    "idS" => $idSerie
+    "idS" => $idSerie,
+    "lon" => $long,
+    "haut" => $haut
 ]);
     }
 
     function savecreat($Nom, $Reference, $Matiere, $Resistance, $poids, $idinge, $hauteur, $longueur, $nbpiece, $couleur, $description, $date ,$idcrea,$erreur,$donnees) {
 
-        $request = "INSERT INTO serie (Name, reference, matter, resistance, weight, `id_workers(ingenieur)`, height, length, Nb_piece, color, description, deadline, `id_workers(createur)`,percentage_of_error,picture,creation_date) VALUES (:Nom, :Reference, :Matiere, :Resistance, :poids, :idinge, :hauteur, :longueur, :nbpiece, :couleur, :description, :date, :idcrea, :erreur, :donne, :dateactu)";
+        $request = "INSERT INTO serie (name, reference, matter, resistance, weight, `id_workers(ingenieur)`, height, length, nb_piece, color, description, deadline, `id_workers(createur)`,percentage_of_error,picture,creation_date) VALUES (:Nom, :Reference, :Matiere, :Resistance, :poids, :idinge, :hauteur, :longueur, :nbpiece, :couleur, :description, :date, :idcrea, :erreur, :donne, :dateactu)";
         $statement = $this->db->prepare($request);
         $statement->execute([
             "Nom" => $Nom,
@@ -186,7 +188,7 @@ $statement->execute([
     }
 
     function cloturetest($id,$pdf) {
-        $request = "UPDATE serie SET states = :states, Closing_Date = :hclo, PDF_cr = :pdf WHERE id = :id";
+        $request = "UPDATE serie SET states = :states, closing_date = :hclo, pdf_cr = :pdf WHERE id = :id";
         $statement = $this->db->prepare($request);
         $statement->execute([
             "states" => "2",
@@ -250,7 +252,7 @@ $statement->execute([
             return $result;
         }
     
-        $request = "SELECT First_Name FROM workers_space WHERE id= :id";
+        $request = "SELECT first_name FROM workers_space WHERE id= :id";
         $statement = $this->db->prepare($request);
         $statement->execute([
             "id" => $id
@@ -272,7 +274,7 @@ $statement->execute([
             return $result;
         }
     
-        $request = "SELECT Name FROM workers_space WHERE id= :id";
+        $request = "SELECT name FROM workers_space WHERE id= :id";
         $statement = $this->db->prepare($request);
         $statement->execute([
             "id" => $id
@@ -293,7 +295,7 @@ $statement->execute([
             return $result;
         }
     
-        $request = "SELECT * FROM test WHERE Id_Serie= :id";
+        $request = "SELECT * FROM test WHERE id_serie= :id";
         $statement = $this->db->prepare($request);
         $statement->execute([
             "id" => $id
@@ -320,7 +322,7 @@ $statement->execute([
             return $result;
         }
     
-        $request = "SELECT * FROM test WHERE Id_Serie= :id";
+        $request = "SELECT * FROM test WHERE id_serie= :id";
         $statement = $this->db->prepare($request);
         $statement->execute([
             "id" => $id

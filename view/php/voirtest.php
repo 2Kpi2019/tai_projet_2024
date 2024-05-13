@@ -8,7 +8,7 @@
 
     // Récupérer les IDs des utilisateurs à partir du modèle
     $entries = $userModel->get_serie($userID);
-    $PieceMax = $entries[0]['Nb_piece'];
+    $PieceMax = $entries[0]['nb_piece'];
     //printf($PieceMax);
 
     if (!isset($_GET['variable'])) {
@@ -37,7 +37,7 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
         <legend>Information</legend>
             <!-- Afficher les informations de l'utilisateur -->
             
-            Nom : <?php echo $user['Name']; ?><br>
+            Nom : <?php echo $user['name']; ?><br>
             Référence : <?php echo $user['reference']; ?><br>
             Matière : <?php echo $user['matter']; ?><br>
             Poids (Kg): <?php echo $user['weight']; ?><br>
@@ -45,7 +45,7 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
             Longueur (cm): <?php echo $user['length']; ?><br>
             Résistance (Pa): <?php echo $user['resistance']; ?><br>
             Couleur : <?php echo $user['color']; ?><br>
-            Nombre de Pièce : <?php echo $user['Nb_piece']; ?><br>
+            Nombre de Pièce : <?php echo $user['nb_piece']; ?><br>
             Deadline : <?php echo $user['deadline']; ?><br>
             Erreur (%): <?php echo $user['percentage_of_error']; ?><br>
             Description : <?php echo $user['description']; ?><br>
@@ -72,13 +72,14 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
         <fieldset>
         <legend>Résultats</legend>
             <!-- Afficher les informations de l'utilisateur -->
-            N° Pièce: <?php echo $user['N_Piece']; ?><br>
+            N° Pièce: <?php echo $user['n_piece']; ?><br>
             
             Conformité: <?php echo $user['compliance']; ?><br>
-            Résistance (Pa): <?php echo $user['Resistance']; ?><br>
+            Résistance (Pa): <?php echo $user['resistance']; ?><br>
             Info: <?php echo $user['info']; ?><br>
             Poids (Kg): <?php echo $user['weight']; ?><br>
-            
+            Hauteur (cm): <?php echo $user['height']; ?><br>
+            Longueur (cm): <?php echo $user['length']; ?><br>
             <!-- Ajoutez d'autres champs ici si nécessaire -->
             <div class="button-container">
             <a href="#" id="fle" onclick="piecemoins2(<?php echo $userID; ?>, <?php echo $variable; ?>)">◄</a>
@@ -100,26 +101,10 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
     align-items: center; /* Centrer verticalement */
     width: 100%; 
     gap: 100px; 
+    font-size: 18px;
 }
 
-.list-container {
-   
-}
-button#clot {
-    display: block;
-    margin: 0 auto; /* Centre horizontalement */
-    padding: 15px 30px; /* Ajoutez du rembourrage pour rendre le bouton plus grand */
-    font-size: 1.2em; /* Taille de police */
-    background-color: #007bff; /* Couleur de fond */
-    color: #ffffff; /* Couleur du texte */
-    border: none; /* Supprime la bordure */
-    border-radius: 10px; /* Coins arrondis */
-    cursor: pointer; /* Curseur au survol */
-}
 
-button#clot:hover {
-    background-color: #0056b3; /* Couleur de fond au survol */
-}
 #updateForm {
     display: flex;
     flex-direction: column;
@@ -150,6 +135,9 @@ button#clot:hover {
     border-radius: 10px; /* Coins arrondis */
     cursor: pointer; /* Curseur au survol */
     text-decoration: none; /* Supprime le soulignement des liens */
+}
+#updateForm a:hover {
+    background-color: #0056b3;
 }
 .button-container {
     display: flex;

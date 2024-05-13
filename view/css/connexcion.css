@@ -35,8 +35,10 @@ footer {
     width: 60%;
     margin: auto;
 }
+
 section {
-    background-color: lightgrey;
+    z-index: 2;
+    background-color: transparent;
     padding: 5px;
     width: 25%;
     display: flex;
@@ -46,8 +48,18 @@ section {
 }
 section h1 {
     text-align: center;
+    
+    
 }
- 
+
+section h1 span {
+    background-color: lightgray; /* Appliquer le fond seulement sur le texte de h1 */
+    padding: 10px;
+    border: #000;
+    border-radius: 6px; /* Pour arrondir les coins */
+}
+
+
 form {
     display: flex;
     flex-direction: column;
@@ -60,17 +72,26 @@ form input{
     border: 2px solid#000;
     border-radius: 6px;
 }
+
+.submit-button {
+     /* Pour occuper la largeur complète du conteneur */
+    text-align: center; /* Pour centrer le bouton */
+    padding: 10px;
+}
 form input[type='submit']{
 background-color: blue;
 border: 0;
 color: white;
 margin-top: 25px;
+text-align: center;
 }
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: 100% ;
+    position: fixed absolute;
 }
+
  
 .image {
     position: fixed; /* Position fixée pour que l'image reste en arrière-plan lors du défilement */
@@ -114,31 +135,32 @@ html, body {
 	background:#000;
 	filter: blur(10px) contrast(20);
 }
-.blob-1,.blob-2{
-	width:70px;
-	height:70px;
-	position:absolute;
-	background:#fff;
-	border-radius:50%;
-	top:50%;left:50%;
-	transform:translate(-50%,-50%);
+
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
-.blob-1{
-	left:20%;
-	animation:osc-l 2.5s ease infinite;
+
+.image-container {
+    perspective: 1000px;
+    backface-visibility: hidden;
+    position: absolute;
+    animation: rotation 50s linear infinite;
+    z-index: 0;
+    width: 500px; /* Largeur fixe pour le conteneur */
+    height: 500px; /* Hauteur fixe pour le conteneur */
+    /* Centrer horizontalement et verticalement */
 }
-.blob-2{
-	left:80%;
-	animation:osc-r 2.5s ease infinite;
-	background:#0ff;
+
+.image-container img {
+    width: 100%; /* Remplir le conteneur */
+    height: 100%; /* Remplir le conteneur */
+    object-fit: contain; /* Ajuster l'image à l'intérieur du conteneur */
+    transform-origin: center center; /* Définir le centre de l'image comme axe de rotation */
 }
-@keyframes osc-l{
-	0%{left:20%;}
-	50%{left:50%;}
-	100%{left:20%;}
-}
-@keyframes osc-r{
-	0%{left:80%;}
-	50%{left:50%;}
-	100%{left:80%;}
-}
+

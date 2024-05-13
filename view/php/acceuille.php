@@ -47,7 +47,7 @@
         <div class="info">
             <!-- Afficher les informations de l'utilisateur -->
             Référence: <?php echo $user['reference']; ?><br>
-            Nom: <?php echo $user['Name']; ?><br>
+            Nom: <?php echo $user['name']; ?><br>
             Matière: <?php echo $user['matter']; ?><br>
             Deadline: <?php echo $user['deadline']; ?><br>
         
@@ -57,10 +57,10 @@
         <?php $nom = $userModel->get_nom($user['id_workers(createur)']); ?>
         <?php $states = $userModel->get_states($user['id']); ?>
             Responsable :<br>
-            <?php echo $prenom[0]['First_Name'].' '.$nom[0]['Name']; ?><br>
+            <?php echo $prenom[0]['first_name'].' '.$nom[0]['name']; ?><br>
 
             
-            Nb Pièce: <?php echo $user['Nb_piece']; ?><br>
+            Nb Pièce: <?php echo $user['nb_piece']; ?><br>
             Status: <?php echo $states; ?><br>
 
         </div>

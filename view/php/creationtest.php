@@ -62,6 +62,10 @@ unset($_SESSION['form_submitted']);
             margin-top: 20px; /* Espacement avec les autres éléments */
             float: right; /* Alignement à droite */
         }
+        .limage {
+    max-width: 500px; /* Définir une largeur maximale pour l'image */
+    
+}
         
     </style>
 
@@ -80,8 +84,9 @@ Référence: <input type="text" placeholder="Référence" name="Reference" value
             Poids (Kg): <input type="text" oninput="this.value = this.value.replace(/[^\d.,]/g, '').replace(',', '.')" placeholder="Poids" name="poids" value="<?php echo isset($form_data['poids']) ? $form_data['poids'] : ''; ?>"><br>
             Attribué à :
             <select name="idinge">
+            <option value="">Sélectionnez un Ingénieur</option>
                 <?php foreach ($entries as $user): ?>
-                <option value="<?php echo $user['id'] ?>" <?php if (isset($form_data['idinge']) && $form_data['idinge'] == $user['id']) echo 'selected'; ?>><?php echo $user['Name'] ?></option>
+                <option value="<?php echo $user['id'] ?>" <?php if (isset($form_data['idinge']) && $form_data['idinge'] == $user['id']) echo 'selected'; ?>><?php echo $user['name'].' '.$user['first_name'] ?></option>
                 <?php endforeach; ?>            
             </select><br>
             Hauteur (cm): <input type="text" oninput="this.value = this.value.replace(/[^\d.,]/g, '').replace(',', '.')" placeholder="Hauteur" name="hauteur" value="<?php echo isset($form_data['hauteur']) ? $form_data['hauteur'] : ''; ?>"><br>
@@ -96,7 +101,7 @@ Référence: <input type="text" placeholder="Référence" name="Reference" value
             <label for="inputFile">Sélectionnez une image :</label>
             <input type="file" id="inputFilenouv" name="inputFile">
             <div class="image" style="text-align: center;">
-        <img id="previewImage" src="">
+        <img id="previewImage" class="limage" src="">
     </div>
             <button type="submit">Valider</button>
         </fieldset>

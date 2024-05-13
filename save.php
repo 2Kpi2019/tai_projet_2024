@@ -14,7 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Resistance = $_POST['Resistance'] !== '' ? $_POST['Resistance'] : NULL;
     $info = $_POST['info'] !== '' ? $_POST['info'] : NULL;
     $date = $_POST['date'] !== '' ? $_POST['date'] : NULL;
-    $userModel->savedata($N_Piece, $compliance, $Resistance, $info, $date,$_POST['idSerie']);
+    $haut = $_POST['haut'] !== '' ? $_POST['haut'] : NULL;
+    $long = $_POST['long'] !== '' ? $_POST['long'] : NULL;
+    $userModel->savedata($N_Piece, $compliance, $Resistance, $info, $date,$_POST['idSerie'],$haut,$long);
     // Session pour stocker les données de l'utilisateur
         
         // $_SESSION['firstname'] = $_POST['prenomcomplet'];

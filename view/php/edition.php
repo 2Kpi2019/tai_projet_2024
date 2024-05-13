@@ -12,7 +12,7 @@
     $allpiece = $userModel->get_all_piece($userID);
     $entriesJSON = json_encode($entries);
     $allpieceJSON = json_encode($allpiece);
-    $PieceMax = $entries[0]['Nb_piece'];
+    $PieceMax = $entries[0]['nb_piece'];
     //printf($PieceMax);
 
     if (!isset($_GET['variable'])) {
@@ -41,7 +41,7 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
         <legend>Information</legend>
             <!-- Afficher les informations de l'utilisateur -->
             
-            Nom : <?php echo $user['Name']; ?><br>
+            Nom : <?php echo $user['name']; ?><br>
             Référence : <?php echo $user['reference']; ?><br>
             Matière : <?php echo $user['matter']; ?><br>
             Poids (kg): <?php echo $user['weight']; ?><br>
@@ -49,7 +49,7 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
             Longueur (cm): <?php echo $user['length']; ?><br>
             Résistance (Pa): <?php echo $user['resistance']; ?><br>
             Couleur : <?php echo $user['color']; ?><br>
-            Nombre de Pièce : <?php echo $user['Nb_piece']; ?><br>
+            Nombre de Pièce : <?php echo $user['nb_piece']; ?><br>
             Deadline : <?php echo $user['deadline']; ?><br>
             Erreur (%): <?php echo $user['percentage_of_error']; ?><br>
             Description : <?php echo $user['description']; ?><br>
@@ -76,13 +76,14 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
         <fieldset>
         <legend>Résultats</legend>
             <!-- Afficher les informations de l'utilisateur -->
-            N° Pièce : <input type="text" name="N_Piece" value="<?php echo $user['N_Piece']; ?>" readonly><br>
+            N° Pièce : <input type="text" name="N_Piece" value="<?php echo $user['n_piece']; ?>" readonly><br>
 
-            Comformité : <?php echo '<input type="text" placeholder="login" name="compliance" value="' .$user['compliance'] .'">'; ?><br>
-            Résistance (Pa): <?php echo '<input type="text" oninput="this.value = this.value.replace(/[^\d.,]/g, \'\').replace(\',\', \'.\')" placeholder="login" name="Resistance" value="' . $user['Resistance'] . '">'; ?><br>
-Info : <?php echo '<input type="text" placeholder="login" name="info" value="' . $user['info'] . '">'; ?><br>
-Poids (kg): <?php echo '<input type="text" oninput="this.value = this.value.replace(/[^\d.,]/g, \'\').replace(\',\', \'.\')" placeholder="weight" name="date" value="' . $user['weight'] . '">'; ?><br>
-
+            Comformité : <?php echo '<input type="text" placeholder="Conformité" name="compliance" value="' .$user['compliance'] .'">'; ?><br>
+            Résistance (Pa): <?php echo '<input type="text" oninput="this.value = this.value.replace(/[^\d.,]/g, \'\').replace(\',\', \'.\')" placeholder="Résistance" name="Resistance" value="' . $user['resistance'] . '">'; ?><br>
+            Info : <?php echo '<input type="text" placeholder="Info" name="info" value="' . $user['info'] . '">'; ?><br>
+            Poids (kg): <?php echo '<input type="text" oninput="this.value = this.value.replace(/[^\d.,]/g, \'\').replace(\',\', \'.\')" placeholder="Poids" name="date" value="' . $user['weight'] . '">'; ?><br>
+            Hauteur (cm): <?php echo '<input type="text" oninput="this.value = this.value.replace(/[^\d.,]/g, \'\').replace(\',\', \'.\')" placeholder="Hauteur" name="haut" value="' . $user['height'] . '">'; ?><br>
+            Longueur (cm): <?php echo '<input type="text" oninput="this.value = this.value.replace(/[^\d.,]/g, \'\').replace(\',\', \'.\')" placeholder="Longueur" name="long" value="' . $user['length'] . '">'; ?><br>
             <!-- Ajoutez d'autres champs ici si nécessaire -->
             
         <input type="hidden" name="userID" value="<?php echo $userID; ?>">
@@ -125,6 +126,7 @@ Poids (kg): <?php echo '<input type="text" oninput="this.value = this.value.repl
     align-items: center; /* Centrer verticalement */
     width: 100%; 
     gap: 100px; 
+    font-size: 18px; 
 }
 
 .list-container {
@@ -143,6 +145,9 @@ button#clot {
 }
 
 button#clot:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+}
+button#val:hover {
     background-color: #0056b3; /* Couleur de fond au survol */
 }
 #updateForm {
@@ -175,6 +180,9 @@ button#clot:hover {
     border-radius: 10px; /* Coins arrondis */
     cursor: pointer; /* Curseur au survol */
     text-decoration: none; /* Supprime le soulignement des liens */
+}
+#updateForm a:hover {
+    background-color: #0056b3;
 }
 .button-container {
     display: flex;

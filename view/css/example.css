@@ -110,14 +110,18 @@ h3 {
 .welcome-message {
     text-align: center; /* Pour centrer le texte */
     margin: 0 auto; /* Pour centrer la div horizontalement */
-    max-width: 600px; /* Optionnel : pour limiter la largeur du contenu */
+    max-width: 1000px; /* Optionnel : pour limiter la largeur du contenu */
 }
 .welcome-message ul {
-    text-align: left; /* Aligner le texte de la liste à gauche */
-    list-style-position: outside; /* Placer les puces à l'extérieur */
+    text-align: center; /* Aligner le texte de la liste à gauche */
+    list-style-position: inside; /* Placer les puces à l'extérieur */
 }
-
+.welcome-message p {
+    font-size: 18px;
+}
 .welcome-message ul li {
+    
+    font-size: 18px; 
     margin-left: 1.5em; /* Espace entre la puce et le texte */
 }
 .fondecran {
