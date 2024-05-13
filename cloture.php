@@ -153,5 +153,5 @@ $pdfBlob = $pdf->Output('exemple.pdf', 'S');
     $userModel->cloturetest($_POST['idSerie'],$pdfBlob);
     
         require_once(__DIR__."/view/php/inge.php");
-    
+        echo '<script>afficherMessageBox2("Test Cloturer")</script>';
         ?>
