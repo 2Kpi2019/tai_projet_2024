@@ -9,7 +9,7 @@
    
     
     ?>
-    <style>
+    <!-- <style>
     .serie-zne {
     border: solid black;
     display: flex;
@@ -38,11 +38,11 @@
 
 
 
-</style>
+</style> -->
 
 <?php foreach ($entries as $user): ?>
     <!-- Créer une zone cliquable autour de chaque utilisateur -->
-    <div class="serie-zne" data-serie-id="<?php echo $user['id']; ?>">
+    <div class="serie-zone" data-serie-id="<?php echo $user['id']; ?>">
         <!-- Div pour les informations -->
         <div class="info">
             <!-- Afficher les informations de l'utilisateur -->

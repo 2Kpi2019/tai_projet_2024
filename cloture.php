@@ -30,7 +30,7 @@ $pdf->setPrintFooter(false);
 $pdf->SetFont('helvetica', 'B', 24);
 // Ajouter une page
 $pdf->AddPage();
-$titleWidth = $pdf->GetStringWidth('Compte rendu Kalitest');
+$titleWidth = floatval($pdf->GetStringWidth('Compte rendu Kalitest'));
 $titleX = ($pdf->GetPageWidth() - $titleWidth) / 2;
 
 // Calculer la position Y pour placer le titre au milieu de la page
@@ -48,13 +48,29 @@ $pdf->Rect($titleX - 5, $titleY - 2, $titleWidth + 10, 10);
 
 // Définir la police et la taille du texte pour le contenu
 $pdf->SetFont('helvetica', '', 12);
+if (isset($info[0]['picture']) && !empty($info[0]['picture'])) {
+    // Code pour traiter l'image
+    
+    $imageBlob = $info[0]['picture'];
+    $imageSize = getImageSizeFromString($imageBlob);
+    $imageWidth = $imageSize[0];
+    $imageHeight = $imageSize[1];
+    
+    // Affichez l'image sur le PDF avec une taille fixe
+    $pdf->SetAutoPageBreak(false, 0);
+    $pageWidth = $pdf->getPageWidth();
 
-// Convertir le blob en format d'image (JPEG, PNG, etc.)
- // Remplacez 'image_blob.jpg' par le chemin de votre image blob
-$imageData = base64_encode($info[0]['picture']);
+// Calculer la position x pour centrer l'image
+$imageStartX = ($pageWidth - ($imageWidth / 30)) / 2;
 
-// Afficher l'image sur le PDF
-$pdf->Image('@' . $imageData, 1, 2, 6,4); // Image positionnée à 10 mm du bord gauche, hauteur automatique, largeur automatique, hauteur de 50 mm
+// Afficher l'image sur le PDF en la centrant horizontalement
+$pdf->Image('@' . $imageBlob, $imageStartX, 13, $imageWidth / 30, $imageHeight / 30); // Convertir les dimensions en cm
+} else {
+    $pdf->Text(10, 10, "L'image n'existe pas.");
+}
+
+
+
 
 $y = 2;
 $pdf->AddPage();
@@ -151,7 +167,7 @@ $pdf->SetFont('helvetica', '', 12);
 $pdfBlob = $pdf->Output('exemple.pdf', 'S');
 
     $userModel->cloturetest($_POST['idSerie'],$pdfBlob);
-    
+    $ingeW3c = 2;
         require_once(__DIR__."/view/php/inge.php");
-        echo '<script>afficherMessageBox2("Test Cloturer")</script>';
+        
         ?>

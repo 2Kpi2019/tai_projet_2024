@@ -41,21 +41,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $erreur = $_POST['erreur'] !== '' ? $_POST['erreur'] : NULL;
         $idcrea = $_SESSION['id'];
         $donnees = file_get_contents($_FILES["inputFile"]["tmp_name"]);
+        $imageInfo = getimagesize($_FILES["inputFile"]["tmp_name"]);
+
         // Appel de la fonction savedata avec toutes les données du formulaire
         $userModel->savecreat($Nom, $Reference, $Matiere, $Resistance, $poids, $idinge, $hauteur, $longueur, $nbpiece, $couleur, $description, $date, $idcrea,$erreur,$donnees);
         $root = "http://../../" . $_SERVER['HTTP_HOST'];
 
 // Redirigez vers la nouvelle page avec la racine en tant que paramètre GET
 //header("Location: view/php/respo.php?root=$root");
-require_once(__DIR__."/view/php/respo.php");
-        echo '<script>afficherSerie();afficherMessageBox2("Test Ajouté")</script>';
+        $respoW3c = 1;
+        require_once(__DIR__."/view/php/respo.php");
+       
+        
         unset($_SESSION['form_data'],$_POST['Nom'], $_POST['Reference'], $_POST['Matiere'], $_POST['Resistance'], $_POST['poids'], $_POST['idinge'], $_POST['hauteur'], $_POST['longueur'], $_POST['nbpiece'], $_POST['couleur'], $_POST['description'], $_POST['date'],$_FILES["inputFile"]["tmp_name"]);
         exit();
     } else {
+        $respoW3c = 2;
+
         require_once(__DIR__."/view/php/respo.php");
-        echo '<script>nouveau();afficherMessageBox("Veuillez remplir toutes les informations")</script>';
-       
+
         
+        //echo '<script>nouveau(); afficherMessageBox("Veuillez remplir toutes les informations");</script>';
+       
         exit();
     }
 }

@@ -1,7 +1,43 @@
-function afficherAccueil(id) {
+function getMaxBlobSize() {
+    // Créez un Blob vide
+    var blob = new Blob([''], { type: 'text/plain' });
     
-   
+    // Estimez la taille maximale possible de Blob
+    var maxBlobSize = blob.size;
+    
+    // Libérez la mémoire occupée par le Blob
+    window.URL.revokeObjectURL(blob);
+
+    return maxBlobSize;
 }
+
+// Utilisation
+var maxSize = getMaxBlobSize();
+console.log('Taille maximale du Blob possible:', maxSize, 'octets');function setMulticolorCharacters(elementId) {
+    const element = document.getElementById(elementId);
+    const text = element.textContent;
+    element.innerHTML = ''; // Clear the original text
+
+    function getColorForPercentage(pct) {
+        let startColor = {r: 0, g: 0, b: 255}; // Blue
+        let endColor = {r: 0, g: 0, b: 139}; // Dark Blue
+        let r = Math.floor(startColor.r + pct * (endColor.r - startColor.r));
+        let g = Math.floor(startColor.g + pct * (endColor.g - startColor.g));
+        let b = Math.floor(startColor.b + pct * (endColor.b - startColor.b));
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    for (let i = 0; i < text.length; i++) {
+        const span = document.createElement('span');
+        span.textContent = text[i];
+        span.style.color = getColorForPercentage(i / text.length);
+        span.classList.add('color-char');
+        element.appendChild(span);
+    }
+}
+
+// Appel de la fonction pour appliquer des couleurs multicolores à chaque caractère
+
 
 
 function test(id) {
@@ -31,6 +67,9 @@ function test(id) {
     };
     xhr.open("GET", "../view/php/testfini.php?IDuser="+id, true);
     xhr.send();
+    element.style.color = "black";
+    element.style.textDecoration = "underline";
+    element.style.fontWeight = "bold";
 }
 function test2() {
     allwhite();
@@ -59,6 +98,9 @@ function test2() {
     };
     xhr.open("GET", "../view/php/testfinirespo.php", true);
     xhr.send();
+    element.style.color = "black";
+    element.style.textDecoration = "underline";
+    element.style.fontWeight = "bold";
 }
 
 
@@ -82,7 +124,7 @@ function afficherCompteRendu() {
                     var userId = zone.getAttribute("data-serie-id");
                     
                     var blob = document.getElementById("blob_"+ userId).value;
-                    console.log(blob);
+                    //console.log(blob);
                     
                     // Exécuter votre code JavaScript en fonction de l'ID de l'utilisateur
                     // Par exemple, remplacer le contenu de l'élément 'contenu' par le texte "2"
@@ -93,6 +135,9 @@ function afficherCompteRendu() {
     };
     xhr.open("GET", "../view/php/acceuilinge.php", true);
     xhr.send();
+    element.style.color = "black";
+    element.style.textDecoration = "underline";
+    element.style.fontWeight = "bold";
 
 }
 function afficherCompteRendu2() {
@@ -125,6 +170,9 @@ function afficherCompteRendu2() {
     };
     xhr.open("GET", "../view/php/cringe.php", true);
     xhr.send();
+    element.style.color = "black";
+    element.style.textDecoration = "underline";
+    element.style.fontWeight = "bold";
 
 }
 function téléchargerBlob(pdfData) {
@@ -227,6 +275,9 @@ function loadserie(id) {
     
     xhr.open("GET", "../view/php/acceuille.php?userID=" + id, true);
     xhr.send();
+    element.style.color = "black";
+    element.style.textDecoration = "underline";
+    element.style.fontWeight = "bold";
 }
 
 function pieceplus(currentUserId,id,max) {
@@ -283,7 +334,7 @@ function nouveau() {
     allwhite();
     
     var element = document.getElementById("nouveau");
-    element.style.backgroundColor = "gray";
+    
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
@@ -306,23 +357,31 @@ function nouveau() {
     };
     xhr.open("GET", "../view/php/creationtest.php", true);
     xhr.send();
-    
+    element.style.color = "black";
+    element.style.textDecoration = "underline";
+    element.style.fontWeight = "bold";
     //ajusterPositionFooter();
 
 }
 
 function allwhite() {
+    if (document.getElementById("Test")) {
     var element = document.getElementById("Test");
-    element.style.backgroundColor = "lightgrey";
+    element.style.color = "#551A8B";
+    element.style.textDecoration = "none"
+    element.style.fontWeight = "normal";
     element.addEventListener("mouseover", function() {
         element.style.backgroundColor = "grey";
     });
     element.addEventListener("mouseout", function() {
         element.style.backgroundColor = "";
     });
+}
     if (document.getElementById("nouveau")) {
         var element1 = document.getElementById("nouveau");
-    element1.style.backgroundColor = "lightgrey";
+    element1.style.color = "#551A8B";
+    element1.style.textDecoration = "none"
+    element1.style.fontWeight = "normal";
     element1.addEventListener("mouseover", function() {
         element1.style.backgroundColor = "grey";
     });
@@ -330,24 +389,30 @@ function allwhite() {
         element1.style.backgroundColor = "";
     });
     }
-    
+    if (document.getElementById("compte")) {
     var element2 = document.getElementById("compte");
-    element2.style.backgroundColor = "lightgrey";
+    element2.style.color = "#551A8B";
+    element2.style.textDecoration = "none"
+    element2.style.fontWeight = "normal";
     element2.addEventListener("mouseover", function() {
         element2.style.backgroundColor = "grey";
     });
     element2.addEventListener("mouseout", function() {
         element2.style.backgroundColor = "";
     });
+}
+if (document.getElementById("finit")) {
     var element3 = document.getElementById("finit");
-    element3.style.backgroundColor = "lightgrey";
+    element3.style.color = "#551A8B";
+    element3.style.textDecoration = "none"
+    element3.style.fontWeight = "normal";
     element3.addEventListener("mouseover", function() {
         element3.style.backgroundColor = "grey";
     });
     element3.addEventListener("mouseout", function() {
         element3.style.backgroundColor = "";
     });
-
+}
 }
 function afficherSerie() {
     var xhr = new XMLHttpRequest();
@@ -361,6 +426,9 @@ function afficherSerie() {
     };
     xhr.open("GET", "../view/php/serierespo.php", true);
     xhr.send();
+    element.style.color = "black";
+    element.style.textDecoration = "underline";
+    element.style.fontWeight = "bold";
 
 }
 

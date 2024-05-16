@@ -8,8 +8,8 @@
     
     
 ?>
- <style>
-    .serie-zone {
+ <!-- <style>
+    .serie-zone2 {
     border: solid black;
     display: flex;
     align-items: center;
@@ -20,14 +20,14 @@
     box-sizing: border-box; /* Inclure la bordure et le rembourrage dans la largeur totale */
 }
 
-.serie-zone .info,
-.serie-zone .image img,
-.serie-zone .milieu {
+.serie-zone2 .info,
+.serie-zone2 .image img,
+.serie-zone2 .milieu {
     flex: 1; /* Les divs .info, .milieu et .image prendront autant d'espace que possible */
     
 }
 
-.serie-zone .image img {
+.serie-zone2 .image img {
     
     max-width: 150px;
     max-height: 150px;
@@ -37,7 +37,7 @@
 
 
 
-</style>
+</style> -->
 <?php telecharger(); ?>
 <?php foreach ($entries as $user): ?>
     <!-- Créer une zone cliquable autour de chaque utilisateur -->

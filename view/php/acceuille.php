@@ -8,7 +8,7 @@
     $entries = $userModel->get_all_serie($userID);
     
     ?>
-    <style>
+    <!-- <style>
     .serie-zone {
     border: solid black;
     display: flex;
@@ -37,7 +37,7 @@
 
 
 
-</style>
+</style> -->
 
 <?php clic(); ?>
 <?php foreach ($entries as $user): ?>

@@ -27,9 +27,9 @@
 $piece = $userModel->get_serie_by_id($userID,$variable);
     
     ?>
-<div class="flex-container">
+<div class="flex-containerr">
     <div class="">
-<ul>
+
 <?php foreach ($entries as $user): ?>
          
         
@@ -57,17 +57,17 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
             
     <?php endforeach; ?>
     
-</ul>
+
 </div>
-<img src="data:image/jpeg;base64,<?php echo base64_encode($lastUserPicture); ?>" alt="Image">
+<img class="photo" src="data:image/jpeg;base64,<?php echo base64_encode($lastUserPicture); ?>" alt="Image">
     <div>
 
 <!-- Affichage des informations de la série -->
 
-<ul>
+
 <?php foreach ($piece as $user): ?>
         
-        <form id ="updateForm" method="post" action="">
+        <form id ="updateForm2" method="post" action="rien.php">
         <input type="hidden" name="idSerie" value="<?php echo $userID; ?>">
         <fieldset>
         <legend>Résultats</legend>
@@ -81,21 +81,21 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
             Hauteur (cm): <?php echo $user['height']; ?><br>
             Longueur (cm): <?php echo $user['length']; ?><br>
             <!-- Ajoutez d'autres champs ici si nécessaire -->
-            <div class="button-container">
-            <a href="#" id="fle" onclick="piecemoins2(<?php echo $userID; ?>, <?php echo $variable; ?>)">◄</a>
+            <div class="button-containerr">
+            <a href="#" id="" onclick="piecemoins2(<?php echo $userID; ?>, <?php echo $variable; ?>)">◄</a>
             
-            <a href="#" id="fle" onclick="pieceplus2(<?php echo $userID; ?>, <?php echo $variable; ?>,<?php echo $PieceMax; ?>)">►</a>
+            <a href="#" id="" onclick="pieceplus2(<?php echo $userID; ?>, <?php echo $variable; ?>,<?php echo $PieceMax; ?>)">►</a>
             </div>
             </fieldset>
             </form>
         
     <?php endforeach; ?><br>
     
-</ul>
+
 </div>
 </div>
-<style>
-.flex-container {
+<!-- <style>
+.flex-containerr {
     display: flex;
     justify-content: center; /* Espacement égal entre les éléments */
     align-items: center; /* Centrer verticalement */
@@ -105,25 +105,25 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
 }
 
 
-#updateForm {
+#updateForm2 {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-#updateForm fieldset {
+#updateForm2 fieldset {
     margin: 0 auto; /* Centrer le fieldset à l'intérieur du formulaire */
     width: 50%; /* Largeur du fieldset */
 }
 
-#updateForm input[type="text"] {
+#updateForm2 input[type="text"] {
     
     width: calc(100% - 20px); /* Largeur du champ de saisie, moins les marges */
     margin: 5px 0; /* Espacement entre les champs de saisie */
 }
-#updateForm button,
-#updateForm a {
+#updateForm2 button,
+#updateForm2 a {
     display: inline-block; /* Rend les éléments en ligne */
     margin: 0 10px; /* Ajoute un peu d'espace entre les éléments */
     margin-top: 15px;
@@ -136,10 +136,10 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
     cursor: pointer; /* Curseur au survol */
     text-decoration: none; /* Supprime le soulignement des liens */
 }
-#updateForm a:hover {
+#updateForm2 a:hover {
     background-color: #0056b3;
 }
-.button-container {
+.button-containerr {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -147,7 +147,7 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
 
 
 
-</style>
+</style> -->
 
 
 

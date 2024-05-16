@@ -13,7 +13,7 @@ body {
    
 }
 footer {
-    background-color: lightgrey;
+    background-color: rgb(232, 213, 199);
     text-align: center;
     padding: 1%;
     position: absolute;
@@ -53,7 +53,7 @@ section h1 {
 }
 
 section h1 span {
-    background-color: lightgray; /* Appliquer le fond seulement sur le texte de h1 */
+    background-color: rgb(232, 213, 199); /* Appliquer le fond seulement sur le texte de h1 */
     padding: 10px;
     border: #000;
     border-radius: 6px; /* Pour arrondir les coins */

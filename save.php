@@ -27,10 +27,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $entries = $userModel->get_serie_ssph($_POST['userID']);
 
         $allpiece = $userModel->get_all_piece($_POST['userID']);
-        
+        $ingeW3c = 1;
         require_once(__DIR__."/view/php/inge.php");
         
-        echo '<script>endit2(' . $_POST['idSerie'] . ',' . $_SESSION['npiece'] . ');</script>';
+        
         
 
         
@@ -48,6 +48,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 
-<script src="view/java/java.js"></script>
 
 

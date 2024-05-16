@@ -37,7 +37,7 @@
                 }
                 else {
                     // set the error message to be displayed in the view
-                    $something_to_say = "Invalid login and/or password.";  
+                    $something_to_say = "Invalid Email Et/Ou Mot de passe";  
                 }
             } else {
                 $something_to_say = "Veuillez saisir un mot de passe";

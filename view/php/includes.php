@@ -9,8 +9,9 @@
 
     function include_header() {
         ?>
+        
        <style>
-        .container {
+        .containerr {
         display: grid;
         grid-template-columns: auto auto;
         gap: 20px;
@@ -39,7 +40,7 @@
     
 </style>
 
-<div class="container">
+<div class="containerr">
     <div class="titre">
         <div>KALITEST</div>
     </div>
@@ -63,7 +64,7 @@
     function clic() {
         ?>
         
-            <h1>Cliquer sur le Test renseigner les résultats</h1>
+            <h1>Cliquer sur le Test pour renseigner les résultats</h1>
             
         
         <?php
@@ -79,8 +80,27 @@
     function include_header5() {
         ?>
      
-     <h3>Bienvenue <?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname'] . " !!"; ?></h3>
-    
+     <h3 id="monTexte">Bienvenue <?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname'] . " !!"; ?></h3>
+     <script>
+        // Fonction pour appliquer des couleurs aléatoires à chaque caractère
+        function setMulticolorCharacters(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            element.innerHTML = ''; // Clear the original text
+
+            const colors = ['blue', 'indigo', 'darkblue'];
+            for (let i = 0; i < text.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = text[i];
+                span.style.color = colors[i % colors.length];
+                span.classList.add('color-char');
+                element.appendChild(span);
+            }
+        }
+
+        // Appel de la fonction pour appliquer des couleurs multicolores à chaque caractère
+        setMulticolorCharacters('monTexte');
+    </script>
         <?php
     }
     function include_header2() {
@@ -111,13 +131,17 @@ nav ul li a {
     text-decoration: none;
     background-color: lightgrey; /* Fond transparent */
 }
+a:hover {
+    background-color: grey;
+    
+}
 .deco {
     background-color: lightgrey; /* Fond transparent */
     border: 2px solid black; /* Bordure similaire aux liens */
     border-radius: 5px; /* Coins arrondis */
     padding: 10px; /* Espacement interne */
     cursor: pointer; /* Curseur */
-    color: black; /* Couleur du texte */
+    color: #551A8B; /* Couleur du texte */
     text-decoration: none; /* Pas de soulignement */
     margin-right: 10px;
 }
@@ -125,10 +149,10 @@ nav ul li a {
 
         </style>
         
-        <body>
+        
         <nav>
                 <ul>
-                    <li><a href="#" type="submit" id="Test" onclick="loadserie(<?php echo $_SESSION['id']; ?>)">Mes Test</a></li>
+                    <li><a href="#" id="Test" onclick="loadserie(<?php echo $_SESSION['id']; ?>)">Mes Test</a></li>
                     <li><a href="#" id="compte" onclick="afficherCompteRendu2()">Compte Rendu</a></li>
                     <li><a href="#" id="finit" onclick="test(<?php echo $_SESSION['id']; ?>)">Test Réaliser</a></li>
                     
@@ -141,7 +165,7 @@ nav ul li a {
             </nav>
            
 
-    </body>
+    
         <?php
     }
 
@@ -187,7 +211,7 @@ a:hover {
     border-radius: 5px; /* Coins arrondis */
     padding: 10px; /* Espacement interne */
     cursor: pointer; /* Curseur */
-    color: black; /* Couleur du texte */
+    color: #551A8B; /* Couleur du texte */
     text-decoration: none; /* Pas de soulignement */
     margin-right: 10px;
 }
@@ -195,10 +219,10 @@ a:hover {
 
         </style>
         
-        <body>
+        
         <nav>
                 <ul>
-                    <li><a href="#" type="submit" id="Test" onclick="afficherSerie()">Test</a></li>
+                    <li><a href="#" id="Test" onclick="afficherSerie()">Test</a></li>
                     <li><a href="#" id="nouveau" onclick="nouveau()">Nouveau Test</a></li>
                     <li><a href="#" id="compte" onclick="afficherCompteRendu()">Compte Rendu</a></li>
                     <li><a href="#" id="finit" onclick="test2()">Test Réalisé</a></li>
@@ -213,14 +237,14 @@ a:hover {
             </nav>
            
 
-    </body>
+    
         <?php
     }
 
 
     function include_footer() {
         ?>
-        <footer>
+    <footer>
             Copyright!©️KALITEST <a href="mailto:servies-kalitest@gmail.com">Contact</a>
         </footer>
         <?php

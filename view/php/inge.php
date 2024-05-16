@@ -7,10 +7,8 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
-<div class="fondecran" id="fondecran">
-            <img src="/figs/B.jpg" alt="Image">
-        </div>
+<html lang="fr">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,16 +18,54 @@
         <title>Welcome</title>
     </head>
     <body>
+    
+       
+    <div class="fondecran" id="fondecran">
+            <img src="/figs/C.jpg" alt="Image">
+        </div>
         
         <!-- PHP only used to display stuff -->
-        <?php include_header(); ?>
-        <?php include_header2(); ?>
+        <div class="containerr">
+    <div class="titre">
+        <div>KALITEST</div>
+    </div>
+    <div class="legars">
+        <h2><?php echo $_SESSION['firstname']?></h2>
+        <h2><?php echo $_SESSION['lastname']?></h2>
+    </div>
+</div>
+        <nav>
+                <ul>
+                    <li><a href="#" id="Test" onclick="loadserie(<?php echo $_SESSION['id']; ?>)">Mes Test</a></li>
+                    <li><a href="#" id="compte" onclick="afficherCompteRendu2()">Compte Rendu</a></li>
+                    <li><a href="#" id="finit" onclick="test(<?php echo $_SESSION['id']; ?>)">Test Réaliser</a></li>
+                    
+                </ul>
+                <form method="post" action="loginController.php">               
+                    
+                    <button type="submit" class="deco">Déconnexion</button>
+                
+            </form>
+            </nav>
+            <?php 
+    if (isset($ingeW3c)) { 
+        if ($ingeW3c == 1) {
+            
+        echo '<script>endit2(' . $_POST['idSerie'] . ',' . $_SESSION['npiece'] . ');</script>';
+        }
+        if ($ingeW3c == 2) {
+            echo '<script>afficherMessageBox2("Test Cloturer")</script>';
+        }
+    }
+    
+    ?>
         
 
         <main id="contenu">
         
         <div class="welcome-message">
-        <?php include_header5(); ?>
+        <h3 id="monTexte">Bienvenue <?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname'] . " !!"; ?></h3>
+        <script>setMulticolorCharacters('monTexte');</script>
         <p>
         Bienvenue sur votre site de gestion de tests. En tant qu'ingénieur, vous aurez accès aux fonctionnalités suivantes :
     </p>
@@ -49,7 +85,7 @@
         
 
 
-    
+        <?php include_footer(); ?>
     </body>
-    <?php include_footer(); ?>
+    
 </html>

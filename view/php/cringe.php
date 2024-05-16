@@ -9,7 +9,7 @@
     
     
 ?>
- <style>
+ <!-- <style>
     .serie-zone {
     border: solid black;
     display: flex;
@@ -38,7 +38,7 @@
 
 
 
-</style>
+</style> -->
 <?php telecharger(); ?>
 <?php foreach ($entries as $user): ?>
     <!-- Créer une zone cliquable autour de chaque utilisateur -->

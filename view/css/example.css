@@ -15,21 +15,21 @@ html {
 body {
     
     margin: 0px auto;
-    
     background-color: transparent;
     min-height: calc(100vh - 70px); /* Assure que le corps a une hauteur minimale de 100% */
     display: flex;
     flex-direction: column; 
     margin-bottom: 50px;
-    
+    /* font-family: 'Roboto', sans-serif; */
     
 }
 
 h1 {
     text-align: center;
     font-size: 2em;
-    color: grey;
+    color: black;
     border-bottom: thin goldenrod solid;
+    border-top: 1ch;
     margin-top: 0px;
 }
 .logout-button {
@@ -41,6 +41,7 @@ h1 {
 
 h2 {
     text-align: right;
+    color : white;
     /* font-size: 0.5em; */
     /*margin-right: 500px;*/
     padding-right: 2em;
@@ -57,7 +58,7 @@ h2 {
 
 
 footer {
-    background-color: lightgrey;
+    background-color: rgb(232, 213, 199);
     text-align: center;
     padding: 1%;
     position: absolute;
@@ -85,7 +86,7 @@ footer {
 /* fancy main section */
 main {
    
-    background-color: lightgrey;
+    background-color: rgb(232, 213, 199);
     border: thin solid grey;
     padding: 1%;
     margin: 1%;
@@ -98,7 +99,7 @@ main {
 h3 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.5em;
-    color: darkblue;
+    /* color: darkblue; */
     border-bottom: thin solid darkblue;
     padding-bottom: 0.5em;
     /* horizontal line after the text */
@@ -140,10 +141,302 @@ h3 {
 }
 .serie-zone:hover {
     background-color: grey;
+    
+}
+
+.containerr {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    align-items: center; /* Pour centrer verticalement les éléments dans chaque colonne */
+}
+.titre {
+    text-align: center;
+    margin-left: 500px;
+}
+
+.titre div {
+    color: black;
+    background-color: rgb(232, 213, 199);
+    font-size: 2em;
+    font-weight: bold;
+    border-radius: 5px;
+border: thin solid grey;
+}
+
+.legars {
+    text-align: right;
+    
+}
+nav {
+    margin-left: 10px;
+display: flex; /* Utilisation de Flexbox */
+justify-content: space-between; /* Les éléments seront espacés également */
+align-items: center; /* Aligner les éléments verticalement au centre */
+}
+    nav ul {
+list-style-type: none;
+padding: 0;
+}
+
+nav ul li {
+display: inline-block;
+margin-right: 10px; /* Espacement entre les éléments */
+/* border: 2px solid black; */
+border-radius: 5px;
+margin: 5px 0;
+}
+
+nav ul li a {
+display: block;
+padding: 10px;
+text-decoration: none;
+background-color: rgb(232, 213, 199);
+border: 2px solid black;
+border-radius: 5px;
+}
+a:hover {
+background-color: grey;
+}
+
+.deco {
+background-color: rgb(232, 213, 199); /* Fond transparent */
+border: 2px solid black; /* Bordure similaire aux liens */
+border-radius: 5px; /* Coins arrondis */
+padding: 10px; /* Espacement interne */
+cursor: pointer; /* Curseur */
+color: #551A8B; /* Couleur du texte */
+text-decoration: none; /* Pas de soulignement */
+margin-right: 10px;
+}
+.deco:hover {
+    background-color: grey;
+}
+.serie-zone {
+    border: solid black;
+    border-radius: 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espacement équitable entre les éléments */
+    margin: 5px;
+    padding: 10px;
+    width: calc(100%); /* Le cadre prendra toute la largeur de son conteneur, ajusté pour la bordure et le rembourrage */
+    box-sizing: border-box; /* Inclure la bordure et le rembourrage dans la largeur totale */
+   
+
+}
+
+.serie-zone .info,
+.serie-zone .image img,
+.serie-zone .milieu {
+    flex: 1; /* Les divs .info, .milieu et .image prendront autant d'espace que possible */
+    
+}
+
+.serie-zone .image img {
+    
+    
+    max-height: 100px;
+    margin-right: auto;
+}
+#updateForm {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px; /* Largeur maximale du formulaire */
+    margin: auto; /* Centrage horizontal */
+}
+
+/* Style pour chaque champ du formulaire */
+#updateForm input,
+#updateForm select,
+#updateForm label {
+    display: block; /* Affichage en bloc pour chaque élément */
+    margin-bottom: 10px; /* Espacement entre les éléments */
+    width: 100%; /* Remplissage complet de la largeur du formulaire */
+    box-sizing: border-box; /* Inclure la bordure et le padding dans la largeur totale */
+}
+
+/* Style du bouton Valider */
+#updateForm button {
+    margin-top: 20px; /* Espacement avec les autres éléments */
+    float: right; /* Alignement à droite */
+}
+.limage {
+max-width: 500px; /* Définir une largeur maximale pour l'image */
+
+}
+.flex-containerr {
+    display: flex;
+    justify-content: center; /* Espacement égal entre les éléments */
+    align-items: center; /* Centrer verticalement */
+    width: 100%; 
+    gap: 100px; 
+    font-size: 18px;
 }
 
 
+#updateForm2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
+#updateForm2 fieldset {
+    margin: 0 auto; /* Centrer le fieldset à l'intérieur du formulaire */
+    width: 50%; /* Largeur du fieldset */
+}
+
+#updateForm2 input[type="text"] {
+    
+    width: calc(100% - 20px); /* Largeur du champ de saisie, moins les marges */
+    margin: 5px 0; /* Espacement entre les champs de saisie */
+}
+#updateForm2 button,
+#updateForm2 a {
+    display: inline-block; /* Rend les éléments en ligne */
+    margin: 0 10px; /* Ajoute un peu d'espace entre les éléments */
+    margin-top: 15px;
+    padding: 15px 30px; /* Ajoutez du rembourrage pour rendre le bouton plus grand */
+    font-size: 1.2em; /* Taille de police */
+    background-color: #007bff; /* Couleur de fond */
+    color: #ffffff; /* Couleur du texte */
+    border: none; /* Supprime la bordure */
+    border-radius: 10px; /* Coins arrondis */
+    cursor: pointer; /* Curseur au survol */
+    text-decoration: none; /* Supprime le soulignement des liens */
+}
+#updateForm2 a:hover {
+    background-color: #0056b3;
+}
+.button-containerr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexattitude {
+    display: flex;
+    justify-content: center; /* Espacement égal entre les éléments */
+    align-items: center; /* Centrer verticalement */
+    width: 100%; 
+    gap: 100px; 
+    font-size: 18px; 
+}
+.photo {
+    max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+}
+
+button#clot {
+    display: block;
+    margin: 0 auto; /* Centre horizontalement */
+    padding: 15px 30px; /* Ajoutez du rembourrage pour rendre le bouton plus grand */
+    font-size: 1.2em; /* Taille de police */
+    background-color: #007bff; /* Couleur de fond */
+    color: #ffffff; /* Couleur du texte */
+    border: none; /* Supprime la bordure */
+    border-radius: 10px; /* Coins arrondis */
+    cursor: pointer; /* Curseur au survol */
+}
+
+.buttoncrea {
+    display: block;
+    margin: 0 auto; /* Centre horizontalement */
+    padding: 15px 30px; /* Ajoutez du rembourrage pour rendre le bouton plus grand */
+    font-size: 1.2em; /* Taille de police */
+    background-color: #007bff; /* Couleur de fond */
+    color: #ffffff; /* Couleur du texte */
+    border: none; /* Supprime la bordure */
+    border-radius: 10px; /* Coins arrondis */
+    cursor: pointer; /* Curseur au survol */
+}
+
+.buttoncrea:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+}
+
+button#clot:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+}
+button#val:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+}
+#formsave {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px; /* Largeur maximale du formulaire */
+    margin: auto;
+}
+
+#formsave fieldset {
+    margin: 0 auto; /* Centrer le fieldset à l'intérieur du formulaire */
+    width: 50%; /* Largeur du fieldset */
+}
+
+#formsave input[type="text"] {
+    
+    width: calc(100% - 20px); /* Largeur du champ de saisie, moins les marges */
+    margin: 5px 0; /* Espacement entre les champs de saisie */
+}
+#formsave button,
+#formsave a {
+    display: inline-block; /* Rend les éléments en ligne */
+    margin-top: 15px;
+    margin: 0 10px; /* Ajoute un peu d'espace entre les éléments */
+    padding: 15px 30px; /* Ajoutez du rembourrage pour rendre le bouton plus grand */
+    font-size: 1.2em; /* Taille de police */
+    background-color: #007bff; /* Couleur de fond */
+    color: #ffffff; /* Couleur du texte */
+    border: none; /* Supprime la bordure */
+    border-radius: 10px; /* Coins arrondis */
+    cursor: pointer; /* Curseur au survol */
+    text-decoration: none; /* Supprime le soulignement des liens */
+}
+#formsave a:hover {
+    background-color: #0056b3;
+}
+#formsave .button-container9 {
+    position: absolute; /* Position absolue par rapport au formulaire */
+    bottom: 0; /* Placer les boutons en bas */
+    margin-bottom: 100px;
+    left: 78%; /* Centrer horizontalement */
+    transform: translateX(-50%); /* Centrer horizontalement */
+}
+.button-container9 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+#formsave .form-group {
+            width: 48%; /* Deux colonnes */
+            margin-bottom: 10px;
+        }
+        #formsave .form-group.full-width {
+            width: 100%; /* Pour le champ N° Pièce */
+            text-align: center;
+        }
+.form-gauche {
+    width: 48%;
+    float: left;
+    margin-bottom: 10px;
+}
+
+.form-droite {
+    width: 48%;
+    float: right;
+    margin-bottom: 10px;
+}
 
 
 
