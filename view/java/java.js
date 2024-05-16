@@ -65,7 +65,7 @@ function test(id) {
             });
         }
     };
-    xhr.open("GET", "../view/php/testfini.php?IDuser="+id, true);
+    xhr.open("GET", "view/php/testfini.php?IDuser="+id, true);
     xhr.send();
     element.style.color = "black";
     element.style.textDecoration = "underline";
@@ -96,7 +96,7 @@ function test2() {
             });
         }
     };
-    xhr.open("GET", "../view/php/testfinirespo.php", true);
+    xhr.open("GET", "view/php/testfinirespo.php", true);
     xhr.send();
     element.style.color = "black";
     element.style.textDecoration = "underline";
@@ -133,7 +133,7 @@ function afficherCompteRendu() {
             });
         }
     };
-    xhr.open("GET", "../view/php/acceuilinge.php", true);
+    xhr.open("GET", "view/php/acceuilinge.php", true);
     xhr.send();
     element.style.color = "black";
     element.style.textDecoration = "underline";
@@ -168,7 +168,7 @@ function afficherCompteRendu2() {
             });
         }
     };
-    xhr.open("GET", "../view/php/cringe.php", true);
+    xhr.open("GET", "view/php/cringe.php", true);
     xhr.send();
     element.style.color = "black";
     element.style.textDecoration = "underline";
@@ -199,7 +199,7 @@ function téléchargerBlob(pdfData) {
     link.href = blobUrl;
 
     // Définissez le nom de fichier du lien
-    link.download = 'document.pdf';
+    link.download = 'Compte Rendu.pdf';
 
     // Ajoutez le lien à la page
     document.body.appendChild(link);
@@ -221,7 +221,7 @@ function endit(currentUserId) {
             document.getElementById('contenu').innerHTML = xhr.responseText;
         }
     };
-    xhr.open("GET", "../view/php/edition.php?userID=" + currentUserId, true);
+    xhr.open("GET", "view/php/edition.php?userID=" + currentUserId, true);
     xhr.send();
 
 }
@@ -232,7 +232,7 @@ function voirtest(currentUserId) {
             document.getElementById('contenu').innerHTML = xhr.responseText;
         }
     };
-    xhr.open("GET", "../view/php/voirtest.php?userID=" + currentUserId, true);
+    xhr.open("GET", "view/php/voirtest.php?userID=" + currentUserId, true);
     xhr.send();
 
 }
@@ -243,7 +243,7 @@ function endit2(currentUserId,id) {
             document.getElementById('contenu').innerHTML = xhr.responseText;
         }
     };
-    xhr.open("GET", "../view/php/edition.php?userID=" + currentUserId +"&variable="+id, true);
+    xhr.open("GET", "view/php/edition.php?userID=" + currentUserId +"&variable="+id, true);
     xhr.send();
 
 }
@@ -273,14 +273,15 @@ function loadserie(id) {
         }
     };
     
-    xhr.open("GET", "../view/php/acceuille.php?userID=" + id, true);
+    xhr.open("GET", "view/php/acceuille.php?userID=" + id, true);
     xhr.send();
     element.style.color = "black";
     element.style.textDecoration = "underline";
     element.style.fontWeight = "bold";
 }
 
-function pieceplus(currentUserId,id,max) {
+function pieceplus(currentUserId,id,max) {//bouton pour voir la pièce suivante, qui interdit de dépasser le max
+    //retourne le bon numéro de pièce pour le test voulu
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
@@ -288,11 +289,11 @@ function pieceplus(currentUserId,id,max) {
         }
     };
     id = (id + 1 <= max) ? id + 1 : max; 
-    xhr.open("GET", "../view/php/edition.php?userID=" + currentUserId+"&variable="+id, true);
+    xhr.open("GET", "view/php/edition.php?userID=" + currentUserId+"&variable="+id, true);
     xhr.send();
     
 }
-function piecemoins(currentUserId,id) {
+function piecemoins(currentUserId,id) {//même chose en moins 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
@@ -300,11 +301,11 @@ function piecemoins(currentUserId,id) {
         }
     };
     id = (id - 1 >= 1) ? id - 1 : 1;
-    xhr.open("GET", "../view/php/edition.php?userID=" + currentUserId+"&variable="+id, true);
+    xhr.open("GET", "view/php/edition.php?userID=" + currentUserId+"&variable="+id, true);
     xhr.send();
     
 }
-function pieceplus2(currentUserId,id,max) {
+function pieceplus2(currentUserId,id,max) { // même chose pour les test fini
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
@@ -312,7 +313,7 @@ function pieceplus2(currentUserId,id,max) {
         }
     };
     id = (id + 1 <= max) ? id + 1 : max; 
-    xhr.open("GET", "../view/php/voirtest.php?userID=" + currentUserId+"&variable="+id, true);
+    xhr.open("GET", "view/php/voirtest.php?userID=" + currentUserId+"&variable="+id, true);
     xhr.send();
     
 }
@@ -324,7 +325,7 @@ function piecemoins2(currentUserId,id) {
         }
     };
     id = (id - 1 >= 1) ? id - 1 : 1;
-    xhr.open("GET", "../view/php/voirtest.php?userID=" + currentUserId+"&variable="+id, true);
+    xhr.open("GET", "view/php/voirtest.php?userID=" + currentUserId+"&variable="+id, true);
     xhr.send();
     
 }
@@ -355,7 +356,7 @@ function nouveau() {
     });
         }
     };
-    xhr.open("GET", "../view/php/creationtest.php", true);
+    xhr.open("GET", "view/php/creationtest.php", true);
     xhr.send();
     element.style.color = "black";
     element.style.textDecoration = "underline";
@@ -364,7 +365,7 @@ function nouveau() {
 
 }
 
-function allwhite() {
+function allwhite() { // pour remettre les boutons dans le css d'origine
     if (document.getElementById("Test")) {
     var element = document.getElementById("Test");
     element.style.color = "#551A8B";
@@ -424,7 +425,7 @@ function afficherSerie() {
             document.getElementById('contenu').innerHTML = xhr.responseText;
         }
     };
-    xhr.open("GET", "../view/php/serierespo.php", true);
+    xhr.open("GET", "view/php/serierespo.php", true);
     xhr.send();
     element.style.color = "black";
     element.style.textDecoration = "underline";
@@ -433,7 +434,7 @@ function afficherSerie() {
 }
 
 
-function afficherMessageBox(message) {
+function afficherMessageBox(message) {// pour le message box rouge
     //console.log("coucou");
     var messageBox = document.createElement('div');
     messageBox.textContent = message;
@@ -462,7 +463,7 @@ function afficherMessageBox(message) {
 }
 
 
-function afficherMessageBox2(message) {
+function afficherMessageBox2(message) { // pour le message box vert
     //console.log("coucou");
     var messageBox = document.createElement('div');
     messageBox.textContent = message;

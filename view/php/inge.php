@@ -21,7 +21,7 @@
     
        
     <div class="fondecran" id="fondecran">
-            <img src="/figs/C.jpg" alt="Image">
+            <img src="figs/C.jpg" alt="Image">
         </div>
         
         <!-- PHP only used to display stuff -->
@@ -41,20 +41,25 @@
                     <li><a href="#" id="finit" onclick="test(<?php echo $_SESSION['id']; ?>)">Test Réaliser</a></li>
                     
                 </ul>
-                <form method="post" action="loginController.php">               
+                <form method="post" action="index.php">               
                     
                     <button type="submit" class="deco">Déconnexion</button>
                 
             </form>
             </nav>
             <?php 
+            // pour être w3c et pour retourner sur la page que je veut je dois
+            // exécuter un fonction java, donc je set une variable dans mon controller et en fonction j'appelle java
     if (isset($ingeW3c)) { 
         if ($ingeW3c == 1) {
             
         echo '<script>endit2(' . $_POST['idSerie'] . ',' . $_SESSION['npiece'] . ');</script>';
+        $ingeW3c=0;
         }
         if ($ingeW3c == 2) {
+
             echo '<script>afficherMessageBox2("Test Cloturer")</script>';
+            $ingeW3c=0;
         }
     }
     

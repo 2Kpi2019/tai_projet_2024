@@ -30,27 +30,27 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
 <div class="flex-containerr">
     <div class="">
 
-<?php foreach ($entries as $user): ?>
+<?php foreach ($entries as $serie): ?>
          
         
         <fieldset>
         <legend>Information</legend>
             <!-- Afficher les informations de l'utilisateur -->
             
-            Nom : <?php echo $user['name']; ?><br>
-            Référence : <?php echo $user['reference']; ?><br>
-            Matière : <?php echo $user['matter']; ?><br>
-            Poids (Kg): <?php echo $user['weight']; ?><br>
-            Hauteur (cm): <?php echo $user['height']; ?><br>
-            Longueur (cm): <?php echo $user['length']; ?><br>
-            Résistance (Pa): <?php echo $user['resistance']; ?><br>
-            Couleur : <?php echo $user['color']; ?><br>
-            Nombre de Pièce : <?php echo $user['nb_piece']; ?><br>
-            Deadline : <?php echo $user['deadline']; ?><br>
-            Erreur (%): <?php echo $user['percentage_of_error']; ?><br>
-            Description : <?php echo $user['description']; ?><br>
+            Nom : <?php echo $serie['name']; ?><br>
+            Référence : <?php echo $serie['reference']; ?><br>
+            Matière : <?php echo $serie['matter']; ?><br>
+            Poids (Kg): <?php echo $serie['weight']; ?><br>
+            Hauteur (cm): <?php echo $serie['height']; ?><br>
+            Longueur (cm): <?php echo $serie['length']; ?><br>
+            Résistance (Pa): <?php echo $serie['resistance']; ?><br>
+            Couleur : <?php echo $serie['color']; ?><br>
+            Nombre de Pièce : <?php echo $serie['nb_piece']; ?><br>
+            Deadline : <?php echo $serie['deadline']; ?><br>
+            Erreur (%): <?php echo $serie['percentage_of_error']; ?><br>
+            Description : <?php echo $serie['description']; ?><br>
             <!-- Ajoutez d'autres champs ici si nécessaire -->
-            <?php $lastUserPicture = $user['picture']; ?>
+            <?php $lastUserPicture = $serie['picture']; ?>
             
             </fieldset>
             
@@ -65,21 +65,21 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
 <!-- Affichage des informations de la série -->
 
 
-<?php foreach ($piece as $user): ?>
+<?php foreach ($piece as $test): ?>
         
         <form id ="updateForm2" method="post" action="rien.php">
         <input type="hidden" name="idSerie" value="<?php echo $userID; ?>">
         <fieldset>
         <legend>Résultats</legend>
             <!-- Afficher les informations de l'utilisateur -->
-            N° Pièce: <?php echo $user['n_piece']; ?><br>
+            N° Pièce: <?php echo $test['n_piece']; ?><br>
             
-            Conformité: <?php echo $user['compliance']; ?><br>
-            Résistance (Pa): <?php echo $user['resistance']; ?><br>
-            Info: <?php echo $user['info']; ?><br>
-            Poids (Kg): <?php echo $user['weight']; ?><br>
-            Hauteur (cm): <?php echo $user['height']; ?><br>
-            Longueur (cm): <?php echo $user['length']; ?><br>
+            Conformité: <?php echo $test['compliance']; ?><br>
+            Résistance (Pa): <?php echo $test['resistance']; ?><br>
+            Info: <?php echo $test['info']; ?><br>
+            Poids (Kg): <?php echo $test['weight']; ?><br>
+            Hauteur (cm): <?php echo $test['height']; ?><br>
+            Longueur (cm): <?php echo $test['length']; ?><br>
             <!-- Ajoutez d'autres champs ici si nécessaire -->
             <div class="button-containerr">
             <a href="#" id="" onclick="piecemoins2(<?php echo $userID; ?>, <?php echo $variable; ?>)">◄</a>
@@ -94,68 +94,3 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
 
 </div>
 </div>
-<!-- <style>
-.flex-containerr {
-    display: flex;
-    justify-content: center; /* Espacement égal entre les éléments */
-    align-items: center; /* Centrer verticalement */
-    width: 100%; 
-    gap: 100px; 
-    font-size: 18px;
-}
-
-
-#updateForm2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-#updateForm2 fieldset {
-    margin: 0 auto; /* Centrer le fieldset à l'intérieur du formulaire */
-    width: 50%; /* Largeur du fieldset */
-}
-
-#updateForm2 input[type="text"] {
-    
-    width: calc(100% - 20px); /* Largeur du champ de saisie, moins les marges */
-    margin: 5px 0; /* Espacement entre les champs de saisie */
-}
-#updateForm2 button,
-#updateForm2 a {
-    display: inline-block; /* Rend les éléments en ligne */
-    margin: 0 10px; /* Ajoute un peu d'espace entre les éléments */
-    margin-top: 15px;
-    padding: 15px 30px; /* Ajoutez du rembourrage pour rendre le bouton plus grand */
-    font-size: 1.2em; /* Taille de police */
-    background-color: #007bff; /* Couleur de fond */
-    color: #ffffff; /* Couleur du texte */
-    border: none; /* Supprime la bordure */
-    border-radius: 10px; /* Coins arrondis */
-    cursor: pointer; /* Curseur au survol */
-    text-decoration: none; /* Supprime le soulignement des liens */
-}
-#updateForm2 a:hover {
-    background-color: #0056b3;
-}
-.button-containerr {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
-</style> -->
-
-
-
-
-<!-- Boutons avec des flèches pour augmenter et diminuer l'ID -->
-
-
-
-
-                
-        

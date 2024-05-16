@@ -3,34 +3,24 @@
 <?php
     
     include_once 'includes.php'; // Assurez-vous que include.php est inclus dans chaque fichier PHP
-    require_once("../../model/php/UserModel.php");
-    $userModel = new UserModel();
-   // $userID = $_GET['userID'];
+    require_once("../../model/php/SerieModel.php");
     
+    $userModel = new UserModel();
+   // $userID = $_GET['userID']; 
 
     // Récupérer les IDs des utilisateurs à partir du modèle
-    $entries = $userModel->get_all_user_ids();
-    session_start();
-    
-    
+    $entries = $userModel->get_all_user_ids();    
+    session_start();     
 // Vérifiez si un message d'erreur est présent dans la session
-
-
-
 // Afficher les données du formulaire précédemment saisies s'il y en a
 if (isset($_SESSION['form_data'])) {
     $form_data = $_SESSION['form_data'];
     // Utilisez $form_data pour remplir les valeurs dans les champs du formulaire
-    // par exemple :
-    
+        
 }
-
 // N'oubliez pas de supprimer les données du formulaire de la session une fois qu'elles ont été utilisées
 unset($_SESSION['form_data']);
-unset($_SESSION['form_submitted']);
-
-    
-    
+unset($_SESSION['form_submitted']);    
 
 // Récupérer les informations de la base de données en fonction de l'ID actuel
 
@@ -38,42 +28,9 @@ unset($_SESSION['form_submitted']);
 // Assurez-vous que l'ID ne devienne jamais inférieur à 1
 
     ?>
-    <!-- <style>
-        /* Style du formulaire */
-        #updateForm {
-            border: 2px solid black;
-            padding: 20px;
-            max-width: 600px; /* Largeur maximale du formulaire */
-            margin: auto; /* Centrage horizontal */
-        }
+   
 
-        /* Style pour chaque champ du formulaire */
-        #updateForm input,
-        #updateForm select,
-        #updateForm label {
-            display: block; /* Affichage en bloc pour chaque élément */
-            margin-bottom: 10px; /* Espacement entre les éléments */
-            width: 100%; /* Remplissage complet de la largeur du formulaire */
-            box-sizing: border-box; /* Inclure la bordure et le padding dans la largeur totale */
-        }
-
-        /* Style du bouton Valider */
-        #updateForm button {
-            margin-top: 20px; /* Espacement avec les autres éléments */
-            float: right; /* Alignement à droite */
-        }
-        .limage {
-    max-width: 500px; /* Définir une largeur maximale pour l'image */
-    
-}
-        
-    </style> -->
-
-
-
-
-
-<form id="updateForm" method="post" action="../../creasave.php" enctype="multipart/form-data">
+<form id="updateForm" method="post" action="creasave.php" enctype="multipart/form-data">
         <fieldset>
             <legend>Création d'un Nouveau Test</legend>
             <!-- Afficher les informations de l'utilisateur -->

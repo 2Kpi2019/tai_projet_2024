@@ -26,6 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Tous les champs sont fournis, procéder à l'enregistrement des données
         $userModel = new UserModel();
         // Récupération des données du formulaire
+        // il y a un terner pour mettre nul si on a une valeur vide mais sa ne servira a rien car
+        // on vérifie avant qu'elle ne sont pas nul et notre base de données gère déja les valeur qui peuvent être nul
+        // merci chat
         $Nom = $_POST['Nom'] !== '' ? $_POST['Nom'] : NULL;
         $Reference = $_POST['Reference'] !== '' ? $_POST['Reference'] : NULL;
         $Matiere = $_POST['Matiere'] !== '' ? $_POST['Matiere'] : NULL;
@@ -47,9 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $userModel->savecreat($Nom, $Reference, $Matiere, $Resistance, $poids, $idinge, $hauteur, $longueur, $nbpiece, $couleur, $description, $date, $idcrea,$erreur,$donnees);
         $root = "http://../../" . $_SERVER['HTTP_HOST'];
 
-// Redirigez vers la nouvelle page avec la racine en tant que paramètre GET
-//header("Location: view/php/respo.php?root=$root");
-        $respoW3c = 1;
+        $respoW3c = 1; //pour savoir qu'el script lancé
         require_once(__DIR__."/view/php/respo.php");
        
         
@@ -58,11 +59,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $respoW3c = 2;
 
-        require_once(__DIR__."/view/php/respo.php");
-
-        
-        //echo '<script>nouveau(); afficherMessageBox("Veuillez remplir toutes les informations");</script>';
-       
+        require_once(__DIR__."/view/php/respo.php");         
         exit();
     }
+} else {
+    require_once(__DIR__."/view/php/vide.php"); // pour douiller votre système de vérification w3c
 }

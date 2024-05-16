@@ -10,8 +10,24 @@
  * @date: Dec. 2023
  */
 
-require_once("DBModel.php");
-
+ //pour gérer suivant de la ou on appelle la page filezila nul nul nul
+ try {
+    if (!@include_once('DBModel.php')) {
+        throw new Exception('Le fichier DBModel.php n\'existe pas.');
+    } else {
+        require_once('DBModel.php');
+    }
+} catch (Exception $e) {
+    // Si le fichier principal n'est pas trouvé, inclure le fichier de secours
+    if (!@include_once('model/php/DBModel.php')) {
+        // Gérer l'erreur si le fichier de secours n'existe pas non plus
+        echo 'Aucun des fichiers DBModel.php n\'existe.';
+        // Vous pouvez également arrêter l'exécution du script ou gérer l'erreur autrement
+        // die('Aucun des fichiers DBModel.php n\'existe.');
+    } else {
+        require_once('model/php/DBModel.php');
+    }
+}
 class UserModel extends DBModel {
 
 
@@ -36,6 +52,26 @@ class UserModel extends DBModel {
         // FetchAll récupère toutes les lignes du résultat de la requête
         $entries = $statement->fetchAll(PDO::FETCH_ASSOC);
         //print_r($entries); 
+    
+        // Retourner les IDs des utilisateurs
+        return $entries;
+    }
+    function get_all_user_ids() {
+        $result = [];
+    
+        if (!$this->connected) {
+            // Gérer le cas où la connexion à la base de données a échoué
+            return $result;
+        }
+    
+        $request = "SELECT * FROM workers_space WHERE job = :id";
+        $statement = $this->db->prepare($request);
+        $statement->execute([
+            "id" => "Ingénieur"
+        ]);
+    
+        // FetchAll récupère toutes les lignes du résultat de la requête
+        $entries = $statement->fetchAll(PDO::FETCH_ASSOC);
     
         // Retourner les IDs des utilisateurs
         return $entries;

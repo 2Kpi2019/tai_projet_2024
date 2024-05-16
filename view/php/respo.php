@@ -2,12 +2,7 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-if (isset($_GET['root'])) {
-    header("Location: ../../loginController.php");
-    $root ="";
-} else {
-    $root ="";
-}
+
 //$root = $_GET['root'] ?? '';
 //$base_path = '/tai/';
 
@@ -39,7 +34,7 @@ if (isset($_GET['root'])) {
    
         
     <div class="fondecran" id="fondecran">
-            <img src="/figs/C.jpg" alt="Image">
+            <img src="figs/C.jpg" alt="Image">
         </div>
     
         <!-- PHP only used to display stuff -->
@@ -65,7 +60,7 @@ if (isset($_GET['root'])) {
                     
                     
                 </ul>
-                <form method="post" action="loginController.php">               
+                <form method="post" action="index.php">               
                     
                     <button type="submit" class="deco">Déconnexion</button>
                 
@@ -74,6 +69,7 @@ if (isset($_GET['root'])) {
     </div>
 </div>
 <?php 
+//même chose que pour inge.php
     if (isset($respoW3c)) { 
         if ($respoW3c == 1) {
             echo '<script>afficherMessageBox2("Test Ajouté")</script>';
@@ -100,15 +96,7 @@ if (isset($_GET['root'])) {
         <li>Consulter les tests terminés dans la rubrique "Tests Clôturés".</li>
     </ul>
 </div>
-            <!-- A form to logout -->
-            <!-- It redirects to the form controller -->
-            <!-- Note that this could have been done with a simple link and a $_GET parameter -->
-          
-        </main>
-        
-        
-        
-        
+        </main>   
         <?php include_footer(); ?>
     </body>
     

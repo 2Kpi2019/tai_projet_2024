@@ -9,9 +9,9 @@ $pwd = "";
 // if we are on the server
 if (file_exists("/var/www/")) {
     $host = "localhost";
-    $dbname = "the-db-name";
-    $user = "the-user";
-    $pwd = "the-password";
+    $dbname = "tai_app_2023_2024_shark";
+    $user = "tai_app_2023_2024_shark";
+    $pwd = "5E8YETH6JZ";
 }
 
 ?>

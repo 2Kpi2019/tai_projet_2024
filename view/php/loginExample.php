@@ -19,22 +19,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
-    <link rel="stylesheet" href="/view/css/connexcion.css">
+    <link rel="stylesheet" href="view/css/connexcion.css">
 </head>
 <body>
 
 <div class="image-container">
-    <img src="/figs/roue3.png" alt="Background Image">
+    <img src="figs/roue3.png" alt="Background Image">
 </div>
     <section>
 <?php 
-            // if an error happened
+            // pour afficher si il manque un mdp ou un email...
             if (isset($something_to_say)) {
                 include_error_message($something_to_say);
             }
         ?>
         <h1><span>KALITEST</span></h1>
-        <form method="post" action="../../loginController.php">
+        <form method="post" action="index.php">
         
             
             
@@ -48,17 +48,10 @@
    
    
     <div class="image">
-            <img src="/figs/C.jpg" alt="Image" >
+            <img src="figs/C.jpg" alt="Image" >
             
         </div>
-        <!-- <div class="container">
-	<div class="row text-center">
-	<div class = "centered">
-	<div class = "blob-1"></div>
-	<div class = "blob-2"></div> -->
-<!-- </div>
-	</div>
-</div> -->
+        
 <?php include_footer(); ?>
 </body>
 </html>

@@ -14,7 +14,7 @@
     $allpieceJSON = json_encode($allpiece);
     $PieceMax = $entries[0]['nb_piece'];
     //printf($PieceMax);
-
+// pour mettre la pièce numéro un de base si il n'y a pas de pièce
     if (!isset($_GET['variable'])) {
         
         // Si elle n'existe pas, initialiser à 1
@@ -33,7 +33,7 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
     ?>
 <div class="flexattitude">
     <div class="">
-<ul>
+
 <?php foreach ($entries as $serie): ?>
          
         
@@ -61,17 +61,17 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
             
     <?php endforeach; ?>
     
-</ul>
+
 </div>
 <img class="photo"src="data:image/jpeg;base64,<?php echo base64_encode($lastUserPicture); ?>" alt="Image">
     <div>
 
 <!-- Affichage des informations de la série -->
 
-<ul>
+
 <?php foreach ($piece as $test): ?>
         
-        <form id ="formsave" method="post" action="../../save.php">
+        <form id ="formsave" method="post" action="save.php">
         <input type="hidden" name="idSerie" value="<?php echo $userID; ?>">
         <fieldset>
         <legend>Résultats</legend>
@@ -114,20 +114,15 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
         
     <?php endforeach; ?><br>
     
-</ul>
+
 </div>
 </div>
 
-<form id ="update" method="post" action="../../cloture.php">
-
-        <input type="hidden" name="idSerie" value="<?php echo $userID; ?>">
-        
-        <button type="submit" id="clot" onClick="">Cloturer le Test</button>
-            
-
-            
-            </form>
-            <script>
+<form id ="update" method="post" action="cloture.php">
+    <input type="hidden" name="idSerie" value="<?php echo $userID; ?>">        
+    <button type="submit" id="clot" onClick="">Cloturer le Test</button>
+</form>
+<script>
                 messagebox2("")
     // Définir des variables JavaScript avec les données JSON encodées
     var entries = <?php echo $entriesJSON; ?>;
@@ -136,122 +131,6 @@ $piece = $userModel->get_serie_by_id($userID,$variable);
     // Appeler la fonction generatePDF() avec les données JSON
     
 </script>
-<!-- <style>
-.flexattitude {
-    display: flex;
-    justify-content: center; /* Espacement égal entre les éléments */
-    align-items: center; /* Centrer verticalement */
-    width: 100%; 
-    gap: 100px; 
-    font-size: 18px; 
-}
-.photo {
-    max-width: 300px;
-            height: auto;
-            border-radius: 8px;
-}
-
-button#clot {
-    display: block;
-    margin: 0 auto; /* Centre horizontalement */
-    padding: 15px 30px; /* Ajoutez du rembourrage pour rendre le bouton plus grand */
-    font-size: 1.2em; /* Taille de police */
-    background-color: #007bff; /* Couleur de fond */
-    color: #ffffff; /* Couleur du texte */
-    border: none; /* Supprime la bordure */
-    border-radius: 10px; /* Coins arrondis */
-    cursor: pointer; /* Curseur au survol */
-}
-
-button#clot:hover {
-    background-color: #0056b3; /* Couleur de fond au survol */
-}
-button#val:hover {
-    background-color: #0056b3; /* Couleur de fond au survol */
-}
-#formsave {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    border: 2px solid black;
-    border-radius: 10px;
-    padding: 20px;
-    max-width: 600px; /* Largeur maximale du formulaire */
-    margin: auto;
-}
-
-#formsave fieldset {
-    margin: 0 auto; /* Centrer le fieldset à l'intérieur du formulaire */
-    width: 50%; /* Largeur du fieldset */
-}
-
-#formsave input[type="text"] {
-    
-    width: calc(100% - 20px); /* Largeur du champ de saisie, moins les marges */
-    margin: 5px 0; /* Espacement entre les champs de saisie */
-}
-#formsave button,
-#formsave a {
-    display: inline-block; /* Rend les éléments en ligne */
-    margin-top: 15px;
-    margin: 0 10px; /* Ajoute un peu d'espace entre les éléments */
-    padding: 15px 30px; /* Ajoutez du rembourrage pour rendre le bouton plus grand */
-    font-size: 1.2em; /* Taille de police */
-    background-color: #007bff; /* Couleur de fond */
-    color: #ffffff; /* Couleur du texte */
-    border: none; /* Supprime la bordure */
-    border-radius: 10px; /* Coins arrondis */
-    cursor: pointer; /* Curseur au survol */
-    text-decoration: none; /* Supprime le soulignement des liens */
-}
-#formsave a:hover {
-    background-color: #0056b3;
-}
-#formsave .button-container9 {
-    position: absolute; /* Position absolue par rapport au formulaire */
-    bottom: 0; /* Placer les boutons en bas */
-    margin-bottom: 100px;
-    left: 78%; /* Centrer horizontalement */
-    transform: translateX(-50%); /* Centrer horizontalement */
-}
-.button-container9 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-}
-#formsave .form-group {
-            width: 48%; /* Deux colonnes */
-            margin-bottom: 10px;
-        }
-        #formsave .form-group.full-width {
-            width: 100%; /* Pour le champ N° Pièce */
-            text-align: center;
-        }
-.form-gauche {
-    width: 48%;
-    float: left;
-    margin-bottom: 10px;
-}
-
-.form-droite {
-    width: 48%;
-    float: right;
-    margin-bottom: 10px;
-}
-
-
-
-
-</style> -->
-
-
-
-
-<!-- Boutons avec des flèches pour augmenter et diminuer l'ID -->
 
 
 

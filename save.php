@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $entries = $userModel->get_serie_ssph($_POST['userID']);
 
         $allpiece = $userModel->get_all_piece($_POST['userID']);
-        $ingeW3c = 1;
+        $ingeW3c = 1; // pour savoir qu'el script lancé
         require_once(__DIR__."/view/php/inge.php");
         
         
@@ -42,7 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     // Handle error: form not submitted
-    echo "Form was not submitted.";
+    
+    require_once(__DIR__."/view/php/vide.php"); // douille w3c
 }
 
 
