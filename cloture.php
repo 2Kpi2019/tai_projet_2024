@@ -4,10 +4,9 @@ require_once(__DIR__."/model/php/SerieModel.php");
 require_once(__DIR__."/tcpdf/tcpdf.php");
 // Check if the user comes from the form...
 
-        session_start();
-        if (!isset($_SESSION)) { 
-            require_once(__DIR__."/view/php/vide.php"); // pour douiller votre système de vérification w3c
-        }
+    
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['idSerie']))  {
+            session_start();
     // Tous les champs sont fournis, procéder à l'enregistrement des données de l'utilisateur
     $userModel = new UserModel();
     $info = $userModel->get_serie($_POST['idSerie']);
@@ -196,5 +195,7 @@ $pdfBlob = $pdf->Output('exemple.pdf', 'S');
     $userModel->cloturetest($_POST['idSerie'],$pdfBlob);
     $ingeW3c = 2;
         require_once(__DIR__."/view/php/inge.php");
-        
+} else {
+    require_once(__DIR__."/view/php/vide.php"); // pour douiller votre système de vérification w3c
+}
         ?>

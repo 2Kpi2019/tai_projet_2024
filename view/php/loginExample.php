@@ -51,7 +51,9 @@
             <img src="figs/C.jpg" alt="Image" >
             
         </div>
-        
-<?php include_footer(); ?>
+        <footer>
+            Responsable Ex : Email = Marge Mdp = 202 /
+            Ingénieur Ex : Email = donuts Mdp = 202
+        </footer>
 </body>
 </html>
